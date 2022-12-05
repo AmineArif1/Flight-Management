@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#"  th:action="@{/succesfulEdit}" th:object="${AppUser}"  method="post">
+  <label for="nom">Modifier le nom</label>
+  <input id="nom" th:value="${AppUser.Nom}" th:field="*{nom}"  type="text" >
+  <label for="Prenom">Modifier le prénom</label>
+  <input id="Prenom" th:value="${AppUser.Prenom}"  th:field="*{prenom}"  type="text" >
+  <label for="username">Modifier votre username</label>
+  <input id="username" th:value="${AppUser.Username}"  th:field="*{username}"  type="text" >
+    <input style="visibility: hidden"  type="hidden"   th:value="${AppUser.CIN}"  th:field="*{CIN}"  >
+    <input type="submit" name="submitRole" id="submitRole">
+
+
+</form>
+</body>
+</html>

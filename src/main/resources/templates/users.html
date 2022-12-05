@@ -8,6 +8,8 @@
     <title>Document</title>
 </head>
 <body>
+<!--include a block of code here;-->
+<div th:insert="choose"></div>
 <h1>USERS</h1>
 <table>
     <tr>
@@ -17,13 +19,29 @@
         <th>Username</th>
     </tr>
     <tr th:each="p:${listUsers}">
-        <td th:text="${p.idUtilisateur}"></td>
+        <td th:text="${p.CIN}"></td>
         <td th:text="${p.Nom}"></td>
-        <td th:text="${p.Prenom}"></td>
+        <td th:text="${p.Prenom}">
+
         <td th:text="${p.username}"></td>
+        <td>
+            <form th:action="@{/userDelete}"  method="post">
+                <input type="hidden" name="username" th:value="${p.username}">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+        <td>
+            <form th:action="@{/editUser}"  method="post">
+                <input type="hidden" name="id" th:value="${p.CIN}">
+                <button type="submit">EDIT</button>
+            </form>
+        </td>
 
 
     </tr>
 </table>
+<form th:action="@{/addUser}" method="post">
+    <input type="submit" value="Ajouter un utilisateur">
+</form>
 </body>
 </html>

@@ -16,7 +16,6 @@ import java.util.Date;
 @SpringBootApplication
 @EnableGlobalMethodSecurity(prePostEnabled = true,securedEnabled = true)
 public class EnsamVolApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(EnsamVolApplication.class, args);
     }
@@ -39,17 +38,13 @@ public class EnsamVolApplication {
 
             accountService.addNewRole(new AppRole(null,"ADMIN"));
             accountService.addNewRole(new AppRole(null,"ADHERANT"));
-
-
-            accountService.addNewUser(new AppUser(null,"El Arif","Amine", new Date(1992,12,20),"5eme",true,"Hassan2",false,"brih","killua","123",new ArrayList<>()));
-            accountService.addNewUser(new AppUser(null,"Achak","Ayoub", new Date(1992,12,20),"5eme",true,"Hassan2",false,"brih","Kurapica","123",new ArrayList<>()));
-            accountService.addNewUser(new AppUser(null,"Fahmi","Mustapha", new Date(1992,12,20),"5eme",true,"Hassan2",false,"brih","Leoro","123",new ArrayList<>()));
-            accountService.addNewUser(new AppUser(null,"Fahmi","Mustapha", new Date(1992,12,20),"5eme",true,"Hassan2",false,"brih","Leoro2","123",new ArrayList<>()));
-
-
-            accountService.addRoleToUser("killua","ADMIN");
-            accountService.addRoleToUser("killua","ADHERANT");
-            accountService.addRoleToUser("Leoro","ADHERANT");
-            accountService.addRoleToUser("Kurapica","ADHERANT");
+            accountService.addNewUser(new AppUser(null,"El Arif","Amine", new Date(1992,12,20),"1","123",new ArrayList<>()));
+            accountService.addNewUser(new AppUser(null,"Yassmine","Souhair", new Date(1992,12,20),"2","123",new ArrayList<>()));
+            accountService.addNewUser(new AppUser(null,"Lina","masba7i", new Date(1992,12,20),"3","123",new ArrayList<>()));
+            accountService.addNewUser(new AppUser(null,"Fahmi","Mustapha", new Date(1992,12,20),"4","123",new ArrayList<>()));
+            accountService.addRoleToUser("1","ADMIN");
+            accountService.addRoleToUser("1","ADHERANT");
+            accountService.addRoleToUser("2","ADHERANT");
+            accountService.addRoleToUser("3","ADHERANT");
         };}
 }

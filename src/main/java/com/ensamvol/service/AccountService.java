@@ -21,6 +21,9 @@ public interface AccountService {
     List<AppUser> listUsers();
     List<AppRole> listRoles();
 
+    void removeUser(String username);
+    AppUser OneUserById(String id);
+    void saveUser(AppUser user);
     List<AppRole> loadUserRoles(String username);
 
 
