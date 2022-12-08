@@ -1,11 +1,12 @@
 package com.ensamvol.repositories;
 
-import com.ensamvol.entities.AppUser;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import com.ensamvol.entities.Personne;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 @Repository
-public interface AppUserRepository extends MongoRepository<AppUser,String> {
-    AppUser findByUsername(String username);
+public interface AppUserRepository extends JpaRepository<Personne,String> {
+    Personne findByUsername(String username);
     void deleteAppUserByUsername(String username);
+    Personne findByCIN(int CIN);
 
 }

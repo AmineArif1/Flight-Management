@@ -1,7 +1,7 @@
 package com.ensamvol.service;
 
 
-import com.ensamvol.entities.AppUser;
+import com.ensamvol.entities.Personne;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -21,11 +21,13 @@ public class UserDetailsServiceImp implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        AppUser user =accountService.loadUserByUsername(username);
+        Personne user =accountService.loadUserByUsername(username);
         Collection<GrantedAuthority> authorities = new ArrayList<>();
-        user.getAppRoles().forEach(appRole -> {
+        user.getRoles().forEach(appRole -> {
+            System.out.println(appRole.getRoleName());
             authorities.add(new SimpleGrantedAuthority(appRole.getRoleName()));
         });
+        System.out.println(user.getRoles());
         return new User(user.getUsername(),user.getPassword(),authorities);
     }
 }

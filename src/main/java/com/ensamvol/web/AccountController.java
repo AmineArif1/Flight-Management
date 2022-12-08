@@ -1,17 +1,15 @@
 package com.ensamvol.web;
-import com.ensamvol.entities.AppRole;
-import com.ensamvol.entities.AppUser;
+import com.ensamvol.entities.Role;
+import com.ensamvol.entities.Personne;
 import com.ensamvol.service.AccountService;
 import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.security.Principal;
-import java.util.List;
-
 
 @Controller
+@PostAuthorize("hasAuthority('ADMIN')")
 public class AccountController {
     private AccountService accountService;
 
@@ -19,20 +17,19 @@ public class AccountController {
         this.accountService = accountService;
     }
     @GetMapping("/users")
-    @PostAuthorize("hasAuthority('ADMIN')")
     public String appUsers(Model model){
         model.addAttribute("listUsers",accountService.listUsers());
         return "users";
     }
     @GetMapping("/roles")
     public String roles(Model model){
-        AppRole appRole = new AppRole();
-        model.addAttribute("AppRole",appRole);
+        Role role = new Role();
+        model.addAttribute("AppRole", role);
         model.addAttribute("listRoles",accountService.listRoles());
         return "roles";
     }
     @PostMapping("/addRole")
-    public String addRole(@ModelAttribute("AppRole") AppRole role,Model model){
+    public String addRole(@ModelAttribute("AppRole") Role role, Model model){
         accountService.addNewRole(role);
         model.addAttribute("listRoles",accountService.listRoles());
         return "roles";
@@ -58,7 +55,7 @@ public class AccountController {
 
     }
     @PostMapping("/succesfulEdit")
-    public String SuccesfullEdit(@ModelAttribute("AppUser") AppUser user,Model model){
+    public String SuccesfullEdit(@ModelAttribute("AppUser") Personne user, Model model){
 
 
         accountService.saveUser(user);;
@@ -70,8 +67,8 @@ public class AccountController {
     }
     @PostMapping("/addUser")
     public String addUser(Model model){
-        AppUser appUser = new AppUser();
-        model.addAttribute("AppUser",appUser);
+        Personne personne = new Personne();
+        model.addAttribute("AppUser", personne);
         return "addUser";
 
 

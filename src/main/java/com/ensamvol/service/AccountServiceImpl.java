@@ -5,8 +5,8 @@ package com.ensamvol.service;
 
 import com.ensamvol.repositories.AppRoleRepository;
 import com.ensamvol.repositories.AppUserRepository;
-import com.ensamvol.entities.AppRole;
-import com.ensamvol.entities.AppUser;
+import com.ensamvol.entities.Role;
+import com.ensamvol.entities.Personne;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,38 +29,43 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public AppUser addNewUser(AppUser appUser) {
-        String pw = appUser.getPassword();
-        appUser.setPassword(passwordEncoder.encode(pw));
-        return appUserRepository.save(appUser);
+    public Personne addNewUser(Personne personne) {
+        String pw = personne.getPassword();
+        personne.setPassword(passwordEncoder.encode(pw));
+        return appUserRepository.save(personne);
     }
 
     @Override
-    public AppRole addNewRole(AppRole appRole) {
-        return appRoleRepository.save(appRole);
+    public Personne showUserById(int id) {
+        return appUserRepository.findByCIN(id);
+    }
+
+    @Override
+    public Role addNewRole(Role role) {
+        return appRoleRepository.save(role);
     }
     @Override
     public void addRoleToUser(String username, String roleName) {
-        AppUser appUser = appUserRepository.findByUsername(username);
-        AppRole appRole = appRoleRepository.findByRoleName(roleName);
+        Personne personne = appUserRepository.findByUsername(username);
+        Role role = appRoleRepository.findByRoleName(roleName);
 
-        appUser.getAppRoles().add(appRole);
-        appUserRepository.save(appUser);
+        personne.getRoles().add(role);
+        appUserRepository.save(personne);
 
 
     }
     @Override
-    public AppUser loadUserByUsername(String username) {
+    public Personne loadUserByUsername(String username) {
         return appUserRepository.findByUsername(username);
     }
 
     @Override
-    public List<AppUser> listUsers() {
+    public List<Personne> listUsers() {
         return appUserRepository.findAll();
     }
 
     @Override
-    public List<AppRole> listRoles() {
+    public List<Role> listRoles() {
         return appRoleRepository.findAll();
     }
 
@@ -70,17 +75,17 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public List<AppRole> loadUserRoles(String username) {
-        AppUser user = appUserRepository.findByUsername(username);
-        return user.getAppRoles();
+    public List<Role> loadUserRoles(String username) {
+        Personne user = appUserRepository.findByUsername(username);
+        return user.getRoles();
     }
     @Override
-    public AppUser OneUserById(String id) {
-        Optional<AppUser> user =  appUserRepository.findById(id);
+    public Personne OneUserById(String id) {
+        Optional<Personne> user =  appUserRepository.findById(id);
         return user.get();
     }
     @Override
-    public void saveUser(AppUser user) {
+    public void saveUser(Personne user) {
         appUserRepository.save(user);
 
     }

@@ -1,0 +1,39 @@
+<div th:insert="header"></div>
+<!--include a block of code here;-->
+<div th:insert="choose"></div>
+<h1 class="userHeader">CLIENTS</h1>
+<span></span>
+<div sec:authorize="hasAuthority('ADMIN')"
+>Text visible to user.</div>
+<table class="tableBackOffice">
+  <tr>
+    <th>ID</th>
+    <th>Nom</th>
+    <th>Prenom</th>
+    <th>Username</th>
+  </tr>
+  <tr th:each="p:${listClients}">
+    <td th:text="${p.idClient}"></td>
+    <td th:text="${p.numPassport}"></td>
+
+    <td>
+      <form th:action="@{/clientDelete}"  method="post">
+        <input type="hidden" name="numPassport" th:value="${p.numPassport}">
+        <button type="submit">Delete</button>
+      </form>
+    </td>
+    <td>
+      <form th:action="@{/editClient}"  method="post">
+        <input type="hidden" name="numPassport" th:value="${p.numPassport}">
+        <button type="submit">EDIT</button>
+      </form>
+    </td>
+
+
+  </tr>
+</table>
+<form th:action="@{/addClient}" method="post">
+  <input class="addUser" type="submit" value="Ajouter un utilisateur">
+</form>
+</body>
+</html>

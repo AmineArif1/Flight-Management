@@ -1,7 +1,7 @@
 package com.ensamvol;
-
-import com.ensamvol.entities.AppRole;
-import com.ensamvol.entities.AppUser;
+import com.ensamvol.entities.Client;
+import com.ensamvol.entities.Personne;
+import com.ensamvol.entities.Role;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,7 +12,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import com.ensamvol.service.AccountService;
 import java.util.ArrayList;
 import java.util.Date;
-
 @SpringBootApplication
 @EnableGlobalMethodSecurity(prePostEnabled = true,securedEnabled = true)
 public class EnsamVolApplication {
@@ -26,25 +25,16 @@ public class EnsamVolApplication {
 //    @Bean
     CommandLineRunner start(AccountService accountService){
         return args -> {
-//            ConnectionString connectionString = new ConnectionString("mongodb+srv://killua:<password>@cluster0.t2wohrr.mongodb.net/?retryWrites=true&w=majority");
-//            MongoClientSettings settings = MongoClientSettings.builder()
-//                    .applyConnectionString(connectionString)
-//                    .serverApi(ServerApi.builder()
-//                            .version(ServerApiVersion.V1)
-//                            .build())
-//                    .build();
-//            MongoClient mongoClient = MongoClients.create(settings);
-//            MongoDatabase database = mongoClient.getDatabase("test");
-
-            accountService.addNewRole(new AppRole(null,"ADMIN"));
-            accountService.addNewRole(new AppRole(null,"ADHERANT"));
-            accountService.addNewUser(new AppUser(null,"El Arif","Amine", new Date(1992,12,20),"1","123",new ArrayList<>()));
-            accountService.addNewUser(new AppUser(null,"Yassmine","Souhair", new Date(1992,12,20),"2","123",new ArrayList<>()));
-            accountService.addNewUser(new AppUser(null,"Lina","masba7i", new Date(1992,12,20),"3","123",new ArrayList<>()));
-            accountService.addNewUser(new AppUser(null,"Fahmi","Mustapha", new Date(1992,12,20),"4","123",new ArrayList<>()));
+            accountService.addNewRole(new Role(null,"ADMIN"));
+            accountService.addNewRole(new Role(null,"ADHERANT"));
+            accountService.addNewUser(new Personne(null,"El Arif","Amine", new Date(1992,12,20),"1","123",new ArrayList<>(),new Client(null,"884",new Personne())));
+            accountService.addNewUser(new Personne(null,"Yassmine","Souhair", new Date(1992,12,20),"2","123",new ArrayList<Role>(),new Client(null,"885",new Personne())));
+            accountService.addNewUser(new Personne(null,"Lina","masba7i", new Date(1992,12,20),"3","123",new ArrayList<>(),new Client(null,"886",new Personne())));
+            accountService.addNewUser(new Personne(null,"Fahmi","Mustapha", new Date(1992,12,20),"4","123",new ArrayList<>(),new Client(null,"887",new Personne())));
             accountService.addRoleToUser("1","ADMIN");
             accountService.addRoleToUser("1","ADHERANT");
             accountService.addRoleToUser("2","ADHERANT");
             accountService.addRoleToUser("3","ADHERANT");
+//            System.out.println(accountService.loadUserByUsername("1").getRoles());
         };}
 }

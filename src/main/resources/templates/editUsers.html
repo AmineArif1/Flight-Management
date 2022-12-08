@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" >
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<div th:insert="header"></div>
+
 <body>
 <form action="#"  th:action="@{/succesfulEdit}" th:object="${AppUser}"  method="post">
   <label for="nom">Modifier le nom</label>

@@ -1,17 +1,11 @@
-<!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+<div th:insert="header"></div>
 <!--include a block of code here;-->
 <div th:insert="choose"></div>
-<h1>USERS</h1>
-<table>
+<h1 class="userHeader">USERS</h1>
+<span></span>
+<div sec:authorize="hasAuthority('ADMIN')"
+>Text visible to user.</div>
+<table class="tableBackOffice">
     <tr>
         <th>ID</th>
         <th>Nom</th>
@@ -41,7 +35,7 @@
     </tr>
 </table>
 <form th:action="@{/addUser}" method="post">
-    <input type="submit" value="Ajouter un utilisateur">
+    <input class="addUser" type="submit" value="Ajouter un utilisateur">
 </form>
 </body>
 </html>

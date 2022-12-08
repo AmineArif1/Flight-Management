@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.chooseButton{
+    display: flex;
+    gap:5px;
+    justify-content: center;
+    align-items: center;
+}
+.chooseButton *{
+    padding:10px;
+}
+.userHeader{
+    text-align: center;
+}
+.tableBackOffice{
+    margin: auto;
+    margin-top: 20px;
+    width: 80%;
+    border-collapse: collapse;
+}
+.tableBackOffice tr{
+    border: 1px solid black;
+    height: 41px;
+}
+.addUser{
+    margin: auto;
+    display: block;
+    margin-top: 10px;
+}
+.formAddUser{
+    display: flex;
+flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: auto;
+    width: 50%;
+    margin-top: 20px;
+}
