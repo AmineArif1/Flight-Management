@@ -1,0 +1,25 @@
+<div th:insert="header"></div>
+<body>
+<!--include a block of code here;-->
+<div th:insert="choose"></div>
+<h1>Roles</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nom_Role</th>
+
+    </tr>
+    <tr th:each="p:${listRoles}">
+        <td th:text="${p.id}"></td>
+        <td th:text="${p.roleName}"></td>
+    </tr>
+
+</table>
+<form action="#"  th:action="@{/addRole}" th:object="${AppRole}"  method="post">
+    <label for="role">Ajouter un role</label>
+    <input id="role"  th:field="*{roleName}"  type="text" >
+    <input type="submit" name="submitRole" id="submitRole">
+</form>
+
+</body>
+</html>

@@ -4,8 +4,8 @@ package com.ensamvol.service;
 
 
 
-import com.ensamvol.entities.AppRole;
-import com.ensamvol.entities.AppUser;
+import com.ensamvol.entities.Role;
+import com.ensamvol.entities.Personne;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,14 +14,17 @@ import java.util.List;
 @Transactional
 public interface AccountService {
 
-    AppUser addNewUser(AppUser appUser);
-    AppRole addNewRole(AppRole appROle);
+    Personne addNewUser(Personne personne);
+    Personne showUserById(int id);
+    Role addNewRole(Role ROle);
     void addRoleToUser(String username,String roleName);
-    AppUser loadUserByUsername(String username);
-    List<AppUser> listUsers();
-    List<AppRole> listRoles();
-
-    List<AppRole> loadUserRoles(String username);
+    Personne loadUserByUsername(String username);
+    List<Personne> listUsers();
+    List<Role> listRoles();
+    void removeUser(String username);
+    Personne OneUserById(String id);
+    void saveUser(Personne user);
+    List<Role> loadUserRoles(String username);
 
 
 }

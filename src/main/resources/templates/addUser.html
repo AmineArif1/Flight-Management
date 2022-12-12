@@ -1,0 +1,16 @@
+<div th:insert="header"></div>
+<body>
+<form class="formAddUser" action="#"  th:action="@{/succesfulEdit}" th:object="${AppUser}"  method="post">
+    <label for="nom">Ajouter le nom</label>
+    <input id="nom" th:value="${AppUser.Nom}" th:field="*{nom}"  type="text" >
+    <label for="Prenom">Ajouter le prénom</label>
+    <input id="Prenom" th:value="${AppUser.Prenom}"  th:field="*{prenom}"  type="text" >
+    <label for="username">Ajouter votre username</label>
+    <input id="username" th:value="${AppUser.Username}"  th:field="*{username}"  type="text" >
+    <label for="password">Ajouter votre mot de passe</label>
+    <input id="password" th:value="${AppUser.Password}"  th:field="*{password}"  type="password" >
+
+    <input type="submit" name="submitRole" id="submitRole">
+</form>
+</body>
+</html>
