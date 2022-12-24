@@ -21,9 +21,9 @@ public class EnsamVolApplication {
     @Bean
     PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
-    }
+    }}
 //    @Bean
-    CommandLineRunner start(AccountService accountService){
+    /*CommandLineRunner start(AccountService accountService){
         return args -> {
             accountService.addNewRole(new Role(null,"ADMIN"));
             accountService.addNewRole(new Role(null,"ADHERANT"));
@@ -37,4 +37,4 @@ public class EnsamVolApplication {
             accountService.addRoleToUser("3","ADHERANT");
 //            System.out.println(accountService.loadUserByUsername("1").getRoles());
         };}
-}
+}*/

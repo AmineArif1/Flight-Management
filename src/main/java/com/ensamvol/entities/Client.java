@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Table(name = "client")
@@ -21,4 +22,6 @@ public class Client {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinTable(name="id_client")
     private Personne personne;
+    @OneToMany(mappedBy = "client")
+    private Collection<Billet> billet;
 }

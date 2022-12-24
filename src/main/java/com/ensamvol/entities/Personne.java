@@ -1,8 +1,8 @@
 package com.ensamvol.entities;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -27,6 +27,7 @@ public class Personne {
     private List<Role> roles;
     @OneToOne(mappedBy = "personne",cascade = CascadeType.ALL)
     private Client client;
+    private Employee employee;
 
 
 
