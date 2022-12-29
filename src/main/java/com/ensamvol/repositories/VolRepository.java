@@ -4,6 +4,6 @@ import com.ensamvol.entities.vol;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface VolRepository extends JpaRepository<vol,Long> {
-     void deleteVolById(Long idVol);
+     void deleteVolByIdVol(Long idVol);
 
 }

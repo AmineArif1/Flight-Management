@@ -27,6 +27,7 @@ public class Personne {
     private List<Role> roles;
     @OneToOne(mappedBy = "personne",cascade = CascadeType.ALL)
     private Client client;
+    @OneToOne(mappedBy = "personne",cascade = CascadeType.ALL)
     private Employee employee;
 
 

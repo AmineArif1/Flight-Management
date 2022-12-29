@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface BilletRepository extends JpaRepository<Billet,String> {
-    void deteleBilletById( int  idBillet);
+    void deleteBilletsByIdBillet( int  idBillet);
 }

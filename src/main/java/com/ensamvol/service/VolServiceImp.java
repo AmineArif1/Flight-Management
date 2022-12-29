@@ -25,7 +25,7 @@ public class VolServiceImp implements  VolService{
 
     @Override
     public void removeVol(Long idVol) {
-        volRepository.deleteVolById(idVol);
+        volRepository.deleteVolByIdVol(idVol);
 
     }
 

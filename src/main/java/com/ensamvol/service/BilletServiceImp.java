@@ -26,7 +26,7 @@ public class BilletServiceImp implements BilletService {
 
     @Override
     public void removeBillet(int idBillet) {
-        billetrepository.deteleBilletById(idBillet);
+        billetrepository.deleteBilletsByIdBillet(idBillet);
 
     }
 
