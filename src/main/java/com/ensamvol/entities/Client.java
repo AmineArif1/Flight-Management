@@ -25,6 +25,5 @@ public class Client {
     private Personne personne;
     @OneToMany(mappedBy = "client")
     private List<Billet> billet;
-    @OneToMany(mappedBy = "client")
-    private List<Reservation> reservation;
+
 }

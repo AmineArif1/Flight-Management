@@ -1,6 +1,6 @@
 package com.ensamvol.service;
 
-import com.ensamvol.entities.vol;
+import com.ensamvol.entities.Vol;
 import com.ensamvol.repositories.VolRepository;
 
 import java.util.List;
@@ -13,13 +13,13 @@ public class VolServiceImp implements  VolService{
     }
 
     @Override
-    public void addNewVol(vol vole) {
+    public void addNewVol(Vol vole) {
         volRepository.save(vole);
 
     }
 
     @Override
-    public List<vol> listVol() {
+    public List<Vol> listVol() {
         return volRepository.findAll();
     }
 
@@ -30,7 +30,7 @@ public class VolServiceImp implements  VolService{
     }
 
     @Override
-    public void saveVol(vol vole) {
+    public void saveVol(Vol vole) {
         volRepository.save(vole);
 
     }

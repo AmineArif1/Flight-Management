@@ -1,5 +1,4 @@
 package com.ensamvol;
-
 import com.ensamvol.service.AccountService;
 import com.ensamvol.service.UserDetailsServiceImp;
 import org.springframework.context.annotation.Configuration;
@@ -13,7 +12,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final AccountService accountService;
     private final UserDetailsServiceImp userDetailsServiceImp;
-
     public SecurityConfig(AccountService accountService, UserDetailsServiceImp userDetailsServiceImp) {
         this.accountService = accountService;
         this.userDetailsServiceImp = userDetailsServiceImp;

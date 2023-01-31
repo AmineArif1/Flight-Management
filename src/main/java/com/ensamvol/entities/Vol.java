@@ -19,7 +19,7 @@ public class Vol {
     private Date dateArrivee;
     private  Date dateDepart;
     private String volName;
-    @OneToMany(mappedBy = "vole")
+    @OneToMany(mappedBy = "vol")
     private Collection<Avion> avion;
 
 }

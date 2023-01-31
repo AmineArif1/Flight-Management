@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "billet")
@@ -20,7 +21,6 @@ public class Billet {
     private Client client;
     @ManyToOne
     private Vol vol;
-    @ManyToOne
-    private Reservation reservation;
+    private Date dateReservation;
 
 }

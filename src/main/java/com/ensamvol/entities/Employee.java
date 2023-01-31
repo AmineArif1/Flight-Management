@@ -15,8 +15,6 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idEmployee;
-
-
     @OneToOne(cascade = CascadeType.ALL)
     @JoinTable(name="id_employee")
     private Personne personne;
