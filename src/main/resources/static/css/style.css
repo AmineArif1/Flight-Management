@@ -30,14 +30,14 @@ html::-webkit-scrollbar-track {
 }
 
 html::-webkit-scrollbar-thumb {
-  background:  #43b0df;
+  background:  #6d52fd;
   ;
   border-radius: 5rem;
 }
 
 body {
   background: rgb(255, 255, 255);
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 section {
@@ -50,7 +50,7 @@ section {
 }
 
 .heading span {
-  color: #43b0df;
+  color: #6d52fd;
   font-size: 2rem;
 }
 
@@ -64,19 +64,20 @@ section {
   display: inline-block;
   padding: 1rem 1rem;
   font-size: 1.7rem;
-  color: #43b0df;
-  border: 0.2rem solid #43b0df;
+  color: #6d52fd;
+  border: 0.2rem solid #6d52fd;
   border-radius: 0rem;
   cursor: pointer;
   background: none;
 }
 
 .btn:hover {
-  background: #43b0df;
+  background: #6d52fd;
   color: rgb(255, 254, 254);
 }
 
 .header {
+  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
@@ -104,7 +105,7 @@ section {
 }
 
 .header .navbar a:hover {
-  color: #43b0df;
+  color: #6d52fd;
 }
 
 .header .btn {
@@ -114,20 +115,20 @@ section {
 
 .logo {
   font-size: 2.5rem;
-  color: #43b0df;
+  color: #6d52fd;
   ;
   font-weight: bolder;
 }
 
 .logo i {
-  color: #43b0df;
+  color: #6d52fd;
   ;
   padding-right: .5rem;
 }
 
 #menu-btn {
   font-size: 2.5rem;
-  color:#43b0df;
+  color:#6d52fd;
   cursor: pointer;
   display: none;
 }
@@ -137,8 +138,7 @@ section {
   margin-top: 9rem;
   width: 100%;
   border-radius: 0rem;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(251, 251, 251, 0.7)), to(rgba(123, 240, 247, 0.7))), url(../../templates/image.svg) no-repeat;
-  background: linear-gradient(rgba(251, 251, 251, 0.5), rgba(143, 198, 239, 0.5)), url(/images/hoome.jpg) no-repeat;
+  background: url(/images/home.svg) no-repeat;
   background-size: cover;
   background-position: center;
   display: -webkit-box;
@@ -180,19 +180,39 @@ h2{
   max-width: 60rem;
   margin: 1rem auto;
   font-size: 1.4rem;
-  color: #aaa;
+  color: black;
   line-height: 2;
 }
 
 .book-form {
+
   width: 80%;
   margin: 1rem auto;
   margin-top: -5rem;
-  background: rgb(255, 254, 254);
-  border-radius: 2rem;
-  -webkit-box-shadow: 0 0.5rem 1rem rgba(17, 17, 17, 0.3);
-          box-shadow: 0 0.5rem 1rem rgba(17, 17, 17, 0.3);
+  background-image: linear-gradient(90deg, red, blue);
+  background-size: 0% 3px;
+  background-repeat:no-repeat;
+  background-position: left bottom;
+  transition: background-size ease-in 500ms;
   padding: 3rem 2rem;
+  --angle: 0deg;
+  border: 1.5vmin solid;
+  border-radius: 10px;
+  background: white;
+  border-image: linear-gradient(var(--angle), #5074fc, #8d56fd) 1;
+  transform: translateY(-20%);
+  animation: 3s rotate linear infinite;
+}
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
 }
 
 .book-form form {
@@ -205,7 +225,7 @@ h2{
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: 1.5rem;
-  
+
 }
 
 .book-form form .inputBox {
@@ -223,9 +243,9 @@ h2{
   width: 100%;
   padding: 1.2rem 1.4rem;
   border-radius: 2rem;
-  border: 0.2rem solid #43b0df;
+  border: 0.2rem solid #6d52fd;
   font-size: 1.6rem;
-  color: #aaa;
+  color: black;
   text-transform: none;
   background: none;
   margin-top: 1rem;
@@ -246,7 +266,7 @@ h2{
   -ms-grid-columns: (minmax(27rem, 1fr))[auto-fit];
       grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
   gap: 1.5rem;
-  
+
 }
 
 .destination .box-container .box {
@@ -282,7 +302,7 @@ h2{
 
 .destination .box-container .box .content h3 {
   font-size: 2rem;
-  color: #43b0df;
+  color: #6d52fd;
 }
 
 .destination .box-container .box .content p {
@@ -294,7 +314,7 @@ h2{
 
 .destination .box-container .box .content a {
   font-size: 1.7rem;
-  color: #43b0df;
+  color: #6d52fd;
 }
 
 .destination .box-container .box .content a:hover i {
@@ -348,17 +368,15 @@ h2{
 
 .blogs .box-container .box .content .link {
   font-size: 2rem;
-  color: #fff;
+  color: #6d52fd;
 }
 
-.blogs .box-container .box .content .link:hover {
-  color: #43b0df;
-}
+
 
 .blogs .box-container .box .content p {
   padding: 1rem 0;
   font-size: 1.4rem;
-  color: #aaa;
+  color: black;
   line-height: 2;
 }
 
@@ -377,7 +395,7 @@ h2{
 
 .blogs .box-container .box .content .icon a {
   font-size: 1.4rem;
-  color: #aaa;
+  color: black;
 }
 
 .blogs .box-container .box .content .icon a:hover {
@@ -415,14 +433,14 @@ h2{
 
 .footer .box-container .box p {
   font-size: 1.4rem;
-  color: #aaa;
+  color: black;
   padding: 1rem 0;
   line-height: 2;
 }
 
 .footer .box-container .box p i {
   padding-right: .5rem;
-  color: #43b0df;
+  color: #6d52fd;
 }
 
 .footer .box-container .box .share {
@@ -436,26 +454,26 @@ h2{
   font-size: 2rem;
   border-radius: 50%;
   font-size: 1.7rem;
-  border: 0.2rem solid #43b0df;
-  color: #43b0df;
+  border: 0.2rem solid #6d52fd;
+  color: #6d52fd;
   margin-right: .5rem;
   text-align: center;
 }
 
 .footer .box-container .box .share a:hover {
-  background: #43b0df;
+  background: #6d52fd;
   color: rgb(255, 255, 255);
 }
 
 .footer .box-container .box .links {
   font-size: 1.4rem;
-  color: #aaa;
+  color: black;
   padding: 1rem 0;
   display: block;
 }
 
 .footer .box-container .box .links:hover {
-  color: #43b0df;
+  color: #6d52fd;
 }
 
 .footer .box-container .box .links:hover i {
@@ -464,17 +482,17 @@ h2{
 
 .footer .box-container .box .links i {
   padding-right: .5rem;
-  color: #43b0df;
+  color: #6d52fd;
 }
 
 .footer .box-container .box form .email {
   width: 100%;
   border-radius: 5rem;
-  border: 0.2rem solid #43b0df;
+  border: 0.2rem solid #6d52fd;
   background: none;
   font-size: 1.5rem;
   text-transform: none;
-  color: #aaa;
+  color: black;
   margin-bottom: 1rem;
   padding: 1.2rem 1.4rem;
 }
@@ -537,4 +555,8 @@ h2{
     font-size: 2.7rem;
   }
 }
-/*# sourceMappingURL=style.css.map */
+.moreTrip{
+  background: linear-gradient(90deg, rgba(80,116,252,1) 0%, rgba(110,82,253,1) 50%, rgba(141,86,253,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

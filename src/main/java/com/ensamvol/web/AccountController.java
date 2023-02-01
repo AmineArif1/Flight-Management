@@ -2,10 +2,12 @@ package com.ensamvol.web;
 import com.ensamvol.entities.Role;
 import com.ensamvol.entities.Personne;
 import com.ensamvol.service.AccountService;
+import org.springframework.core.Ordered;
 import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 
 
 @Controller
@@ -73,4 +75,9 @@ public class AccountController {
 
 
     }
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/login").setViewName("login");
+        registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
+    }
+
 }

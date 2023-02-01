@@ -22,7 +22,6 @@ public class EnsamVolApplication {
     PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
-    @Bean
     CommandLineRunner start(AccountService accountService){
         return args -> {
             accountService.addNewRole(new Role(null,"ADMIN"));
