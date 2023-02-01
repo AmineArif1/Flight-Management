@@ -21,20 +21,20 @@ public class EnsamVolApplication {
     @Bean
     PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
-    }}
-//    @Bean
-    /*CommandLineRunner start(AccountService accountService){
+    }
+    @Bean
+    CommandLineRunner start(AccountService accountService){
         return args -> {
             accountService.addNewRole(new Role(null,"ADMIN"));
             accountService.addNewRole(new Role(null,"ADHERANT"));
-            accountService.addNewUser(new Personne(null,"El Arif","Amine", new Date(1992,12,20),"1","123",new ArrayList<>(),new Client(null,"884",new Personne())));
-            accountService.addNewUser(new Personne(null,"Yassmine","Souhair", new Date(1992,12,20),"2","123",new ArrayList<Role>(),new Client(null,"885",new Personne())));
-            accountService.addNewUser(new Personne(null,"Lina","masba7i", new Date(1992,12,20),"3","123",new ArrayList<>(),new Client(null,"886",new Personne())));
-            accountService.addNewUser(new Personne(null,"Fahmi","Mustapha", new Date(1992,12,20),"4","123",new ArrayList<>(),new Client(null,"887",new Personne())));
+            accountService.addNewUser(new Personne(null,"El Arif","Amine", new Date(1992,12,20),"1","123",new ArrayList<>(),null,null));
+            accountService.addNewUser(new Personne(null,"Yassmine","Souhair", new Date(1992,12,20),"2","123",new ArrayList<Role>(),null,null));
+            accountService.addNewUser(new Personne(null,"Lina","masba7i", new Date(1992,12,20),"3","123",new ArrayList<>(),null,null));
+            accountService.addNewUser(new Personne(null,"Fahmi","Mustapha", new Date(1992,12,20),"4","123",new ArrayList<>(),null,null));
             accountService.addRoleToUser("1","ADMIN");
             accountService.addRoleToUser("1","ADHERANT");
             accountService.addRoleToUser("2","ADHERANT");
             accountService.addRoleToUser("3","ADHERANT");
 //            System.out.println(accountService.loadUserByUsername("1").getRoles());
         };}
-}*/
+}

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AppUserRepository extends JpaRepository<Personne,String> {
     Personne findByUsername(String username);
-    void deleteAppUserByUsername(String username);
+    void deletePersonneByUsername(String username);
     Personne findByCIN(int CIN);
 
 }

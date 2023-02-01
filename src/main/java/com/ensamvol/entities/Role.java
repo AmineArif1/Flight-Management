@@ -18,12 +18,6 @@ public class Role {
     private Integer id;
     @Column(unique = true)
     private String roleName;
-    @ManyToMany(targetEntity = Role.class, cascade = { CascadeType.ALL },fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "personne_role",
-            joinColumns = { @JoinColumn(name = "id_user") },
-            inverseJoinColumns = { @JoinColumn(name = "id_role") }
-    )
-    private List<Personne> personnes;
+
 
 }

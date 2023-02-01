@@ -19,7 +19,7 @@ import java.util.Optional;
 public class AccountServiceImpl implements AccountService {
     private final AppUserRepository appUserRepository;
     private final AppRoleRepository appRoleRepository;
-    private  PasswordEncoder passwordEncoder;
+    private final  PasswordEncoder passwordEncoder;
 
 
     public AccountServiceImpl(AppUserRepository appUserRepository, AppRoleRepository appRoleRepository, PasswordEncoder passwordEncoder) {
@@ -71,7 +71,7 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public void removeUser(String username) {
-        appUserRepository.deleteAppUserByUsername(username);
+        appUserRepository.deletePersonneByUsername(username);
     }
 
     @Override

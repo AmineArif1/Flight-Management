@@ -137,7 +137,7 @@ section {
   margin-top: 9rem;
   width: 100%;
   border-radius: 0rem;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(251, 251, 251, 0.7)), to(rgba(123, 240, 247, 0.7))), url(../image.svg) no-repeat;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(251, 251, 251, 0.7)), to(rgba(123, 240, 247, 0.7))), url(../../templates/image.svg) no-repeat;
   background: linear-gradient(rgba(251, 251, 251, 0.5), rgba(143, 198, 239, 0.5)), url(/images/hoome.jpg) no-repeat;
   background-size: cover;
   background-position: center;
