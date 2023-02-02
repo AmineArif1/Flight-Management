@@ -41,38 +41,29 @@
               </a>
             </div>
           </form>
-          <form action="#" class="sign-up-form">
+          <form class="sign-up-form" action="#"  th:action="@{/signup}" th:object="${Personne}"  method="post">
             <h2 class="title">Sign up</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
+              <input id="nom"  th:field="*{nom}"  type="text" placeholder="Nom" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input id="Prenom"   th:field="*{prenom}"  type="text" placeholder="Prenom" />
             </div>
             <div class="input-field">
               <i class="fas fa-envelope"></i>
-              <input type="email" placeholder="Email" />
+              <input type="email" id="username"   th:field="*{username}" placeholder="Email" />
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
+              <input id="password"   th:field="*{password}" type="password" placeholder="Password" />
             </div>
-            <input name="_csrf" type="hidden" value="486cdac5-94ff-49fb-8610-fe2761a3afe9">
+            <input style="visibility: hidden"  type="hidden"  th:field="*{CIN}"  >
+
             <input type="submit" class="btn" value="Sign up" />
-            <p class="social-text">Or Sign up with social platforms</p>
-            <div class="social-media">
-              <a href="#" class="social-icon">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-google"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </div>
           </form>
+
         </div>
       </div>
 

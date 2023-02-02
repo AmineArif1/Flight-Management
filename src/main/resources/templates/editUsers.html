@@ -1,7 +1,7 @@
 <div th:insert="header"></div>
 
 <body>
-<form action="#"  th:action="@{/succesfulEdit}" th:object="${AppUser}"  method="post">
+<form action="#"  th:action="@{/addUser}" th:object="${AppUser}"  method="post">
   <label for="nom">Modifier le nom</label>
   <input id="nom" th:value="${AppUser.Nom}" th:field="*{nom}"  type="text" >
   <label for="Prenom">Modifier le prénom</label>

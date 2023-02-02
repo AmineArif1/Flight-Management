@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 
 
 @Controller
-@PostAuthorize("hasAuthority('ADMIN')")
+//@PostAuthorize("hasAuthority('ADMIN')")
 public class AccountController {
     private AccountService accountService;
 
@@ -67,6 +67,17 @@ public class AccountController {
 
 
     }
+    @PostMapping("/signup")
+    public String signUP(@ModelAttribute("AppUser") Personne user, Model model){
+        model.addAttribute("Personne", new Personne());
+        System.out.println("I am being saved");
+        accountService.addNewUser(user);;
+
+
+        return "login";
+
+
+    }
     @PostMapping("/addUser")
     public String addUser(Model model){
         Personne personne = new Personne();
@@ -75,9 +86,6 @@ public class AccountController {
 
 
     }
-    public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/login").setViewName("login");
-        registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
-    }
+
 
 }

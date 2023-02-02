@@ -263,10 +263,14 @@ h2{
 .destination .box-container {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(27rem, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
-  gap: 1.5rem;
+  -ms-grid-columns: (minmax(40rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+  gap: 2rem;
 
+}
+.bigBox{
+  grid-column-start: 1;
+  grid-column-end: 5;
 }
 
 .destination .box-container .box {
@@ -283,7 +287,7 @@ h2{
 }
 
 .destination .box-container .box .image {
-  height: 20rem;
+  height: 27rem;
   overflow: hidden;
   width: 100%;
 }
