@@ -18,7 +18,7 @@ public class Company {
     private Integer idCompany;
     @Column(unique = true)
     private String companyName;
-    @OneToMany(mappedBy = "avion")
+    @OneToMany(mappedBy = "company")
     private Collection<Avion> avion;
 
 

@@ -20,5 +20,6 @@ public class Avion {
 	@ManyToOne
 	@JoinColumn(name="idCompany")
 	private Company company;
+
 }
 
