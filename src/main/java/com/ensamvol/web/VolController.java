@@ -14,8 +14,8 @@ import java.util.List;
 public class VolController {
     @Autowired
     private VolRepository volRepository;
-    @RequestMapping(value = "/Indexo")
-    public String Indexo(Model model){
+    @RequestMapping(value = "/flights")
+    public String flights(Model model){
         List<Vol> vols=volRepository.findAll();
         model.addAttribute("flights",vols);
         return "flights";

@@ -28,8 +28,9 @@
         <th> vol name <span class="icon-arrow">&UpArrow;</span></th>
         <th> date de depart <span class="icon-arrow">&UpArrow;</span></th>
 
-        <th> dare d'arrivee <span class="icon-arrow">&UpArrow;</span></th>
-        <th> Status <span class="icon-arrow">&UpArrow;</span></th>
+        <th> date d'arrivee <span class="icon-arrow">&UpArrow;</span></th>
+        <th> Prix <span class="icon-arrow">&UpArrow;</span></th>
+        <th> Book <span class="icon-arrow">&UpArrow;</span></th>
 
       </tr>
       </thead>
@@ -39,6 +40,7 @@
 
         <td th:text="${v.dateArrivee}"> </td>
         <td th:text="${v.dateDepart}">  </td>
+        <td th:text="${v.volPrix}">  </td>
         <td>
           <button class="status delivered">reserve now</button>
         </td>
