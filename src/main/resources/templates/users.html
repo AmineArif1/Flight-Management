@@ -3,8 +3,8 @@
 <div th:insert="choose"></div>
 <h1 class="userHeader">USERS</h1>
 <span></span>
-<div sec:authorize="hasAuthority('ADMIN')"
->Text visible to user.</div>
+<div sec:authorize="hasAuthority('ADMIN')">
+    Text visible to user.</div>
 <table class="tableBackOffice">
     <tr>
         <th>ID</th>

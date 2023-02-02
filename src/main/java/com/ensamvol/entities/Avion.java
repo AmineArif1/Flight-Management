@@ -17,4 +17,8 @@ public class Avion {
 	private Integer idAvion;
 	@ManyToOne
 	private Vol vol;
+	@ManyToOne
+	@JoinColumn(name="idCompany")
+	private Company company;
 }
+
