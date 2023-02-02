@@ -19,6 +19,9 @@ public class Vol {
     private Date dateArrivee;
     private  Date dateDepart;
     private String volName;
+    private String volImage;
+    private String volDescription;
+    private Long volPrix;
     @OneToMany(mappedBy = "vol")
     private Collection<Avion> avion;
 
