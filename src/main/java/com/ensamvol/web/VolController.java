@@ -20,4 +20,10 @@ public class VolController {
         model.addAttribute("flights",vols);
         return "flights";
     }
+     @PostMapping("/addFlight")
+    public String addFlight(@ModelAttribute Vol vol) {
+        volService.addNewVol(vol);
+        return "addFlight";
+    }
+
 }
