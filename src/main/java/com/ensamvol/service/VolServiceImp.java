@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 @Transactional
 public class VolServiceImp implements  VolService{
@@ -38,7 +40,7 @@ public class VolServiceImp implements  VolService{
 
     }
     @Override
-    public Vol getVolById(Long idVol)
+    public Optional<Vol> getVolById(Long idVol)
     {
     	return volRepository.findById(idVol);
     }

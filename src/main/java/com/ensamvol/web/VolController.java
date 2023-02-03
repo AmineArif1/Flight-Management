@@ -2,13 +2,14 @@ package com.ensamvol.web;
 
 import com.ensamvol.entities.Vol;
 import com.ensamvol.repositories.VolRepository;
+import com.ensamvol.service.VolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.w3c.dom.stylesheets.LinkStyle;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class VolController {
@@ -35,7 +36,7 @@ public class VolController {
 
        @GetMapping("/update/{idVol}")
     public String showUpdateForm(@PathVariable("idVol") Long idVol, Model model) {
-        Vol vol = volService.getVolById(idVol);
+        Optional<Vol> vol = volService.getVolById(idVol);
         model.addAttribute("vol", vol);
         return "updateFlightAdmin";
     }

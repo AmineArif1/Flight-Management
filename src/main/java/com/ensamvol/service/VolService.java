@@ -4,6 +4,7 @@ import com.ensamvol.entities.Vol;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public interface VolService {
@@ -11,5 +12,5 @@ public interface VolService {
     List<Vol> listVol();
     void removeVol(Long idVol);
     void saveVol(Vol vole);
-    Vol getVolById(Long idVol);
+    Optional<Vol> getVolById(Long idVol);
 }
