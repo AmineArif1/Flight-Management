@@ -25,5 +25,19 @@ public class VolController {
         volService.addNewVol(vol);
         return "addFlight";
     }
+     @GetMapping("/delete/{idVol}")
+    public String deleteFlight(@PathVariable Long idVol) {
+        volService.removeVol(idVol);
+        return "flights";
+    }
+   
+
+       @GetMapping("/update/{idVol}")
+    public String showUpdateForm(@PathVariable("idVol") Long idVol, Model model) {
+        Vol vol = volService.getVolById(idVol);
+        model.addAttribute("vol", vol);
+        return "updateFlightAdmin";
+    }
+    
 
 }
