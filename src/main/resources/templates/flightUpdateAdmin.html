@@ -1,0 +1,29 @@
+<div th:insert="header"></div>
+<form action="/flight/update" method="post">
+  <input type="hidden" name="idVol" value="{{flight.idVol}}">
+  <div>
+    <label for="dateArrivee">Date d'arrivée:</label>
+    <input type="date" id="dateArrivee" name="dateArrivee" value="{{flight.dateArrivee}}">
+  </div>
+  <div>
+    <label for="dateDepart">Date de départ:</label>
+    <input type="date" id="dateDepart" name="dateDepart" value="{{flight.dateDepart}}">
+  </div>
+  <div>
+    <label for="volName">Nom du vol:</label>
+    <input type="text" id="volName" name="volName" value="{{flight.volName}}">
+  </div>
+  <div>
+    <label for="volImage">Image du vol:</label>
+    <input type="text" id="volImage" name="volImage" value="{{flight.volImage}}">
+  </div>
+  <div>
+    <label for="volDescription">Description du vol:</label>
+    <input type="text" id="volDescription" name="volDescription" value="{{flight.volDescription}}">
+  </div>
+  <div>
+    <label for="volPrix">Prix du vol:</label>
+    <input type="number" id="volPrix" name="volPrix" value="{{flight.volPrix}}">
+  </div>
+  <button type="submit">Update</button>
+</form>
