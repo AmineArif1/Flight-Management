@@ -37,4 +37,9 @@ public class VolServiceImp implements  VolService{
         volRepository.save(vole);
 
     }
+    @Override
+    public Vol getVolById(Long idVol)
+    {
+    	return volRepository.findById(idVol);
+    }
 }
