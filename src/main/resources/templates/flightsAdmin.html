@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html xmlns :th="http://www.thymeleaf.org">
+<div sec:authorize="hasAuthority('ADMIN')">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  <title>flights</title>
+  <link rel="stylesheet" href="css/style_flight.css"/>
+</head>
+
+<body>
+<main class="table">
+  <section class="table__header">
+    <img src="images/direct-flight.png" height="40px" width="40px">
+    <h1>FLIGHTS</h1>
+    <div class="input-group">
+      <input type="search" placeholder="Search Data...">
+      <img src="images/search.png" alt="">
+    </div>
+
+  </section>
+  <section class="table__body">
+    <table>
+      <thead>
+      <tr>
+        <th> vol name <span class="icon-arrow">&UpArrow;</span></th>
+        <th> date de depart <span class="icon-arrow">&UpArrow;</span></th>
+
+        <th> date d'arrivee <span class="icon-arrow">&UpArrow;</span></th>
+        <th> Prix <span class="icon-arrow">&UpArrow;</span></th>
+        <th> Book <span class="icon-arrow">&UpArrow;</span></th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="v:${flights}">
+        <td th:text="${v.volName}"> </td>
+
+        <td th:text="${v.dateArrivee}"> </td>
+        <td th:text="${v.dateDepart}">  </td>
+        <td th:text="${v.volPrix}">  </td>
+        <td><button type="button" onclick="window.location.href='/delete/{{v.idVol}}'">Delete</button></td>
+        <td><button type="button" onclick="window.location.href='/update/{{v.idVol}}'">Update</button></td>
+        
+      </tr>
+
+
+
+
+      </tbody>
+    </table>
+  </section>
+</main>
+</body>
+
+</html>
