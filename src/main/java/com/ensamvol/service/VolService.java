@@ -11,4 +11,5 @@ public interface VolService {
     List<Vol> listVol();
     void removeVol(Long idVol);
     void saveVol(Vol vole);
+    void getVolById(Long idVol);
 }
