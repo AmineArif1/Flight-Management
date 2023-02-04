@@ -9,6 +9,19 @@
     <label for="dateDepart">Date de départ:</label>
     <input type="date" id="dateDepart" name="dateDepart" value="{{flight.dateDepart}}">
   </div>
+     <div>
+    <label for="volName">Date de départ:</label>
+   	<select>
+  		<option th:each="ville : ${villes}" th:value="${ville}" th:text="${ville.villeName}" value="{{flight.villeDepart.villeName}}"></option>
+	</select>
+  </div>
+   <div>
+    <label for="volName">Date d'arrivée:</label>
+   	<select>
+  		<option th:each="ville : ${villes}" th:value="${ville}" th:text="${ville.villeName}" value="{{flight.villeArrivee.villeName}}"></option>
+	</select>
+  </div>
+  
   <div>
     <label for="volName">Nom du vol:</label>
     <input type="text" id="volName" name="volName" value="{{flight.volName}}">
