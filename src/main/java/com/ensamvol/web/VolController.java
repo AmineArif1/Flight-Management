@@ -34,7 +34,7 @@ public class VolController {
     }
 
      @PostMapping("/addFlight")
-    public String addFlight(@ModelAttribute Vol vol) {
+    public String addFlight(@ModelAttribute Vol vol,Model model) {
         volService.addNewVol(vol);
         List<Ville> villes = VilleService.listVille();
         model.addAttribute("villes" , villes);
