@@ -17,6 +17,7 @@ public class VolController {
     @Autowired
     private VolRepository volRepository;
     private VolService volService ;
+    private VilleService villeService
     
     @RequestMapping(value = "/flights")
     public String flights(Model model){
@@ -26,7 +27,7 @@ public class VolController {
     }
     
         @RequestMapping(value = "/flightsAdmin")
-    public String flights(Model model){
+    public String flightsAdmin(Model model){
         List<Vol> vols=volRepository.findAll();
         model.addAttribute("flights",vols);
         return "flightsAdmin";
@@ -50,7 +51,7 @@ public class VolController {
     public String showUpdateForm(@PathVariable("idVol") Long idVol, Model model) {
         Optional<Vol> vol = volService.getVolById(idVol);
         model.addAttribute("vol", vol);
-        List<Ville> villes = VilleService.listVille();
+        List<Ville> villes = villeService.listVille();
         model.addAttribute("villes" , villes);
         return "updateFlightAdmin";
     }
