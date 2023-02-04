@@ -16,15 +16,26 @@ public class VolController {
     @Autowired
     private VolRepository volRepository;
     private VolService volService ;
+    
     @RequestMapping(value = "/flights")
     public String flights(Model model){
         List<Vol> vols=volRepository.findAll();
         model.addAttribute("flights",vols);
         return "flights";
     }
+    
+        @RequestMapping(value = "/flightsAdmin")
+    public String flights(Model model){
+        List<Vol> vols=volRepository.findAll();
+        model.addAttribute("flights",vols);
+        return "flightsAdmin";
+    }
+
      @PostMapping("/addFlight")
     public String addFlight(@ModelAttribute Vol vol) {
         volService.addNewVol(vol);
+        List<Ville> villes = VilleService.listVille();
+        model.addAttribute("villes" , villes);
         return "addFlight";
     }
      @GetMapping("/delete/{idVol}")
@@ -38,6 +49,8 @@ public class VolController {
     public String showUpdateForm(@PathVariable("idVol") Long idVol, Model model) {
         Optional<Vol> vol = volService.getVolById(idVol);
         model.addAttribute("vol", vol);
+        List<Ville> villes = VilleService.listVille();
+        model.addAttribute("villes" , villes);
         return "updateFlightAdmin";
     }
     
