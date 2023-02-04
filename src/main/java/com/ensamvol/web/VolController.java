@@ -1,13 +1,14 @@
 package com.ensamvol.web;
 
+import com.ensamvol.entities.Ville;
 import com.ensamvol.entities.Vol;
 import com.ensamvol.repositories.VolRepository;
+import com.ensamvol.service.VilleService;
 import com.ensamvol.service.VolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import com.ensamvol.service.villeService;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,7 +18,7 @@ public class VolController {
     @Autowired
     private VolRepository volRepository;
     private VolService volService ;
-    private VilleService villeService
+    private VilleService villeService;
     
     @RequestMapping(value = "/flights")
     public String flights(Model model){
@@ -36,7 +37,7 @@ public class VolController {
      @PostMapping("/addFlight")
     public String addFlight(@ModelAttribute Vol vol,Model model) {
         volService.addNewVol(vol);
-        List<Ville> villes = VilleService.listVille();
+        List<Ville> villes = villeService.listVille();
         model.addAttribute("villes" , villes);
         return "addFlight";
     }
