@@ -1,0 +1,117 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">
+
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/stylo.css">
+    <title>Form Design</title>
+</head>
+<body>
+
+
+<form  th:action ="@{/reservation_save}" th:object="${billet}" class="row g-3 p-3">
+    <header>Passenger information</header>
+    <p>veuillez remplir les informations attentivement pour reserver votre billet </p>
+
+    <span  class="title">Passenger 1 (Adult)</span>
+    <div class="col-md-4">
+        <label for="validationDefault01" class="form-label">First name</label>
+        <input type="text" class="form-control" id="validationDefault01" placeholder="firt name" required>
+    </div>
+    <div class="col-md-4">
+        <label for="validationDefault02" class="form-label">Middle</label>
+        <input type="text" class="form-control" id="validationDefault02" placeholder="middle name" >
+    </div>
+    <div class="col-md-4">
+        <label for="validationDefaultUsername" class="form-label">Last name</label>
+        <div class="input-group">
+            <input type="text" class="form-control" id="validationDefaultUsername" placeholder="last name" aria-describedby="inputGroupPrepend2" required>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">Birth</label>
+        <input type="date" class="form-control" id="inputEmail4">
+    </div>
+    <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Phone Number</label>
+        <input type="text" class="form-control" id="inputPassword4">
+    </div>
+    <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">Email</label>
+        <input type="email" class="form-control" id="inputEmail4">
+    </div>
+    <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Knowen passanger number</label>
+        <input type="number" th:field="*{numPassenger}" class="form-control" id="inputPassword4">
+    </div>
+    <span class="title">Bags information</span>
+    <p>veuillez remplir les informations attentivement pour reserver votre billet </p>
+
+    <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">number of bags</label>
+        <input th:field="*{numBages}" type="number" class="form-control" id="inputEmail4">
+    </div>
+    <div class="col-md-6">
+        <label class="form-label">weight</label>
+        <select  class="form-control"required>
+            <option disabled selected>Select weight of your bags</option>
+            <option>1kg</option>
+            <option>10kg</option>
+            <option>20kg</option>
+        </select>
+
+    </div>
+    </div>
+
+
+
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button  id="reset" type="reset" class="btn btn-primary">Reset all</button>
+
+    </div>
+</form>
+<form class="row g-3 p-3">
+
+    <header>Flight Informations</header>
+    <div class="flighte">
+        <img
+                src="images/bag.svg"
+                alt=""
+                style="width: 45px; height: 45px"
+                class="rounded-circle"
+        />        <header> Rayanair</header>
+
+        <p> depart:13h:00  Marrkech</p>
+        <p> arrvee:14h:00 Madrid</p>
+
+    </div>
+    <div class="tswira">
+        <img src="images/bag.svg">
+    </div>
+
+</form>
+<!--<aside class="sidebar" data-sidebar>
+  <div class="sidebar-info">
+      <img src="bag.svg">
+
+
+  </div>
+
+</aside>-->
+
+</body>
+
+
+
+
+
+</html>

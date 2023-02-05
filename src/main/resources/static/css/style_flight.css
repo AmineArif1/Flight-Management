@@ -136,7 +136,7 @@ tbody tr:nth-child(even) {
 tbody tr:hover {
     background-color: #fff6 !important;
 }
-button{
+a{
     width: 100px;
     border-radius: 10px;
     border: none;

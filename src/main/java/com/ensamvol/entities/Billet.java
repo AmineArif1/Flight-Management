@@ -17,10 +17,13 @@ public class Billet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  int idBillet;
     private double billetPrix;
+
+    private double numBages;
+    private double numPassenger;
     @ManyToOne
     private Client client;
     @ManyToOne
     private Vol vol;
-    private Date dateReservation;
+
 
 }
