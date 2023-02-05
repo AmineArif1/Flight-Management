@@ -1,5 +1,6 @@
 package com.ensamvol.service;
 
+import com.ensamvol.entities.Ville;
 import com.ensamvol.entities.Vol;
 import org.springframework.stereotype.Service;
 
@@ -17,5 +18,8 @@ public interface VolService {
     void saveVol(Vol vole);
 
     Optional<Vol> getVolById(Long idVol);
+
+    Ville getVilleDepart(Long idVol);
+    Ville getVilleArrive(Long idVol);
 
 }
