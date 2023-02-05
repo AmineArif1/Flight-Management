@@ -77,12 +77,26 @@
     console.log(response);
     $('#dateWeather').text(response.location.localtime+" ");
     $('#PaysWeather').text(response.location.name+" ");
-    $('#Celcius').text(response.current.temp_c+" ");
+    $('#Celcius').text(response.current.temp_c+"°C");
     const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 
     const d = new Date();
     let day = weekday[d.getDay()];
     document.getElementById("dayWeather").innerHTML = day;
+    $('#EtatWeather').text(response.current.condition.text +" ");
+
+
+  });
+  var settings7Days = {
+    "url": "http://api.weatherapi.com/v1/forecast.json?key=c943211fe5144993947183757221612&q=Casablanca&days=7&aqi=no&alerts=no",
+    "method": "GET",
+    "timeout": 0,
+  };
+//  for next 7 days
+//  http://api.weatherapi.com/v1/forecast.json?key=c943211fe5144993947183757221612&q=Casablanca&days=15&aqi=no&alerts=no
+  $.ajax(settings7Days).done(function (response) {
+    console.log(response);
+
 
 
   });

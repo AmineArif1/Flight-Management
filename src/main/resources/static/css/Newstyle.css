@@ -16551,3 +16551,9 @@ ul {
     border-left: 3px solid rgba(255, 255, 255, 0.2); } }
 
 /*# sourceMappingURL=maps/style.css.map */
+#Celcius{
+  font-size: 4rem!important;
+}
+#EtatWeather{
+  font-size: 1.5rem!important;
+}
