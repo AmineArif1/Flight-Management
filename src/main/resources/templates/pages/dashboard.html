@@ -18,7 +18,7 @@
                         <div class="float-right">
                             <p class="mb-0 text-right">Total Revenue</p>
                             <div class="fluid-container">
-                                <h3 class="font-weight-medium text-right mb-0">$65,650</h3>
+                                <h3 th:text="${totalRevenue}" class="font-weight-medium text-right mb-0"></h3>
                             </div>
                         </div>
                     </div>
@@ -36,9 +36,9 @@
                             <i class="mdi mdi-receipt text-warning icon-lg"></i>
                         </div>
                         <div class="float-right">
-                            <p class="mb-0 text-right">Orders</p>
+                            <p class="mb-0 text-right">Billets</p>
                             <div class="fluid-container">
-                                <h3 class="font-weight-medium text-right mb-0">3455</h3>
+                                <h3 th:text="${totalBillet}" class="font-weight-medium text-right mb-0"></h3>
                             </div>
                         </div>
                     </div>
@@ -56,9 +56,9 @@
                             <i class="mdi mdi-poll-box text-success icon-lg"></i>
                         </div>
                         <div class="float-right">
-                            <p class="mb-0 text-right">Sales</p>
+                            <p class="mb-0 text-right">Flights</p>
                             <div class="fluid-container">
-                                <h3 class="font-weight-medium text-right mb-0">5693</h3>
+                                <h3 th:text="${totalFlights}" class="font-weight-medium text-right mb-0"></h3>
                             </div>
                         </div>
                     </div>
@@ -76,9 +76,9 @@
                             <i class="mdi mdi-account-location text-info icon-lg"></i>
                         </div>
                         <div class="float-right">
-                            <p class="mb-0 text-right">Employees</p>
+                            <p class="mb-0 text-right">Clients</p>
                             <div class="fluid-container">
-                                <h3 class="font-weight-medium text-right mb-0">246</h3>
+                                <h3 th:text="${totalClients}"  class="font-weight-medium text-right mb-0"></h3>
                             </div>
                         </div>
                     </div>
@@ -105,7 +105,7 @@
                         <div class="mr-auto">
                             <h4 id="Celcius" class="display-3">21
                                 <span class="symbol">&deg;</span>C</h4>
-                            <p>
+                            <p id="EtatWeather">
                                 Mostly Cloudy
                             </p>
                         </div>
@@ -115,38 +115,11 @@
                     <div class="d-flex weakly-weather">
                         <div class="weakly-weather-item">
                             <p class="mb-0">
-                                Sun
-                            </p>
-                            <i class="mdi mdi-weather-cloudy"></i>
-                            <p class="mb-0">
-                                30°
-                            </p>
-                        </div>
-                        <div class="weakly-weather-item">
-                            <p class="mb-1">
-                                Mon
-                            </p>
-                            <i class="mdi mdi-weather-hail"></i>
-                            <p class="mb-0">
-                                31°
-                            </p>
-                        </div>
-                        <div class="weakly-weather-item">
-                            <p class="mb-1">
-                                Tue
-                            </p>
-                            <i class="mdi mdi-weather-partlycloudy"></i>
-                            <p class="mb-0">
-                                28°
-                            </p>
-                        </div>
-                        <div class="weakly-weather-item">
-                            <p class="mb-1">
                                 Wed
                             </p>
                             <i class="mdi mdi-weather-pouring"></i>
                             <p class="mb-0">
-                                30°
+                                18°
                             </p>
                         </div>
                         <div class="weakly-weather-item">
@@ -155,25 +128,52 @@
                             </p>
                             <i class="mdi mdi-weather-pouring"></i>
                             <p class="mb-0">
-                                29°
+                                18°
                             </p>
                         </div>
                         <div class="weakly-weather-item">
                             <p class="mb-1">
                                 Fri
                             </p>
-                            <i class="mdi mdi-weather-snowy-rainy"></i>
+                            <i class="mdi mdi-weather-partlycloudy"></i>
                             <p class="mb-0">
-                                31°
+                                19°
                             </p>
                         </div>
                         <div class="weakly-weather-item">
                             <p class="mb-1">
                                 Sat
                             </p>
-                            <i class="mdi mdi-weather-snowy"></i>
+                            <i class="mdi mdi-weather-partlycloudy"></i>
                             <p class="mb-0">
-                                32°
+                                20°
+                            </p>
+                        </div>
+                        <div class="weakly-weather-item">
+                            <p class="mb-1">
+                                Sun
+                            </p>
+                            <i class="mdi mdi-weather-partlycloudy"></i>
+                            <p class="mb-0">
+                                21°
+                            </p>
+                        </div>
+                        <div class="weakly-weather-item">
+                            <p class="mb-1">
+                                Mon
+                            </p>
+                            <i class="mdi mdi-weather-partlycloudy"></i>
+                            <p class="mb-0">
+                                20°
+                            </p>
+                        </div>
+                        <div class="weakly-weather-item">
+                            <p class="mb-1">
+                                Tue
+                            </p>
+                            <i class="mdi mdi-weather-partlycloudy"></i>
+                            <p class="mb-0">
+                                20°
                             </p>
                         </div>
                     </div>
