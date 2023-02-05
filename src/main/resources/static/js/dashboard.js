@@ -67,4 +67,23 @@
       });
     }
   });
+  var settings = {
+    "url": "http://api.weatherapi.com/v1/current.json?key=c943211fe5144993947183757221612&q=Casablanca&aqi=no",
+    "method": "GET",
+    "timeout": 0,
+  };
+
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+    $('#dateWeather').text(response.location.localtime+" ");
+    $('#PaysWeather').text(response.location.name+" ");
+    $('#Celcius').text(response.current.temp_c+" ");
+    const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+
+    const d = new Date();
+    let day = weekday[d.getDay()];
+    document.getElementById("dayWeather").innerHTML = day;
+
+
+  });
 })(jQuery);
