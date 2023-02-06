@@ -21,6 +21,8 @@ public class VolController {
     private VolRepository volRepository;
     private VolService volService ;
     private VilleService villeService;
+    private VolServiceImp volServiceImp;
+    private VilleRepository villeRepository;
     private BilletService billetService;
     
     @RequestMapping(value = "/flights")
