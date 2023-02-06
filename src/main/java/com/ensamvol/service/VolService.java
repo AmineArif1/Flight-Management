@@ -21,5 +21,6 @@ public interface VolService {
 
     Ville getVilleDepart(Long idVol);
     Ville getVilleArrive(Long idVol);
+    void updateVol(Long idVol ,Vol vol);
 
 }
