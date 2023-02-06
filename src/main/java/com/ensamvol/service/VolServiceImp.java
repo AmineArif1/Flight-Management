@@ -59,4 +59,21 @@ public class VolServiceImp implements  VolService{
         Vol tempVol = volRepository.findById(idVol).get();
         return tempVol.getVilleArrive();
     }
+    @Override
+	public void updateVol(Long idVol, Vol updatedVol) {
+        Vol vol = volRepository.findById(idVol).orElse(null);
+        if (vol != null) {
+
+        vol.setDateArrivee(updatedVol.getDateArrivee());
+        vol.setDateDepart(updatedVol.getDateDepart());
+        vol.setVolName(updatedVol.getVolName());
+        vol.setVolImage(updatedVol.getVolImage());
+        vol.setVolDescription(updatedVol.getVolDescription());
+        vol.setVolPrix(updatedVol.getVolPrix());
+        vol.setVilleDepart(updatedVol.getVilleDepart());
+        vol.setVilleArrivee(updatedVol.getVilleArrivee());
+
+        volRepository.save(vol);
+        }
+    }
 }
