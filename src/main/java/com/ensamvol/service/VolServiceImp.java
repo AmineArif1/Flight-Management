@@ -71,7 +71,7 @@ public class VolServiceImp implements  VolService{
         vol.setVolDescription(updatedVol.getVolDescription());
         vol.setVolPrix(updatedVol.getVolPrix());
         vol.setVilleDepart(updatedVol.getVilleDepart());
-        vol.setVilleArrivee(updatedVol.getVilleArrivee());
+        vol.setVilleArrive(updatedVol.getVilleArrive());
 
         volRepository.save(vol);
         }
