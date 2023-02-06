@@ -4,7 +4,7 @@
      xmlns:th="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
      xmlns:th="http://www.w3.org/1999/xhtml"></div>
 <body>
-<form action="/flight/update" method="post">
+<form action="@{/addFlight}" method="post">
   <input type="hidden" name="idVol" value="{{flight.idVol}}">
   <div>
     <label for="dateArrivee">Date d'arrivée:</label>
