@@ -4,8 +4,9 @@ import com.ensamvol.entities.Billet;
 import com.ensamvol.entities.Ville;
 import com.ensamvol.entities.Vol;
 import com.ensamvol.repositories.VolRepository;
+import com.ensamvol.repositories.VIlleRepository;
 import com.ensamvol.service.BilletService;
-import com.ensamvol.service.VilleService;
+import com.ensamvol.service.VIlleService;
 import com.ensamvol.service.VolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,9 +21,9 @@ public class VolController {
     @Autowired
     private VolRepository volRepository;
     private VolService volService ;
-    private VilleService villeService;
+    private VIlleService villeService;
     private VolServiceImp volServiceImp;
-    private VilleRepository villeRepository;
+    private VIlleRepository villeRepository;
     private BilletService billetService;
     
     @RequestMapping(value = "/flights")
