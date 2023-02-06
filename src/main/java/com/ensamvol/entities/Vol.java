@@ -24,5 +24,10 @@ public class Vol {
     private Long volPrix;
     @OneToMany(mappedBy = "vol")
     private Collection<Avion> avion;
+    @OneToOne
+    private Ville villeDepart;
+    @OneToOne
+    private Ville villeArrive;
+
 
 }

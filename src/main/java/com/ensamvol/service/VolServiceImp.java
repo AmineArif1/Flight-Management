@@ -1,5 +1,6 @@
 package com.ensamvol.service;
 
+import com.ensamvol.entities.Ville;
 import com.ensamvol.entities.Vol;
 import com.ensamvol.repositories.VolRepository;
 import org.springframework.stereotype.Service;
@@ -43,5 +44,19 @@ public class VolServiceImp implements  VolService{
     public Optional<Vol> getVolById(Long idVol)
     {
     	return volRepository.findById(idVol);
+    }
+    @Override
+    public Ville getVilleDepart(Long idVol){
+        Vol tempVol = volRepository.findById(idVol).get();
+        return tempVol.getVilleDepart();
+
+
+
+    }
+
+    @Override
+    public Ville getVilleArrive(Long idVol) {
+        Vol tempVol = volRepository.findById(idVol).get();
+        return tempVol.getVilleArrive();
     }
 }

@@ -1,7 +1,6 @@
 
 <!DOCTYPE html>
 <html xmlns :th="http://www.thymeleaf.org">
-<div sec:authorize="hasAuthority('ADMIN')">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -42,12 +41,9 @@
         <td th:text="${v.dateDepart}">  </td>
         <td th:text="${v.volPrix}">  </td>
         <td>
-          <a class="btn btn-outline-info " href="/reservation">reserve now</a>
+          <a style="text-decoration: none;background: #674aaa;padding:7px;border-radius:10px;color:white" class="btn btn-outline-info " href="/reservation">reserve now</a>
         </td>
       </tr>
-
-
-
 
       </tbody>
     </table>
