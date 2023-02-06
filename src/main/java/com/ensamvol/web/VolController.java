@@ -34,7 +34,11 @@ public class VolController {
         model.addAttribute("flights",vols);
         return "flights";
     }
-    
+
+
+
+
+
         @RequestMapping(value = "/flightsAdmin")
     public String flightsAdmin(Model model){
         List<Vol> vols=volRepository.findAll();

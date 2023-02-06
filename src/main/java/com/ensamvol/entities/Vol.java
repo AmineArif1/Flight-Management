@@ -3,6 +3,7 @@ package com.ensamvol.entities;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -19,7 +20,7 @@ public class Vol {
     private Date dateArrivee;
     private  Date dateDepart;
     private String volName;
-    private String volImage;
+    private byte[] volImage;
     private String volDescription;
     private Long volPrix;
     @OneToMany(mappedBy = "vol")

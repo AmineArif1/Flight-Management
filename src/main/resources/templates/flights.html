@@ -24,8 +24,9 @@
     <table>
       <thead>
       <tr>
-        <th> vol name <span class="icon-arrow">&UpArrow;</span></th>
+        <th> ville de depart <span class="icon-arrow">&UpArrow;</span></th>
         <th> date de depart <span class="icon-arrow">&UpArrow;</span></th>
+        <th> ville d'arrivee <span class="icon-arrow">&UpArrow;</span></th>
 
         <th> date d'arrivee <span class="icon-arrow">&UpArrow;</span></th>
         <th> Prix <span class="icon-arrow">&UpArrow;</span></th>
@@ -35,10 +36,11 @@
       </thead>
       <tbody>
       <tr th:each="v:${flights}">
-        <td th:text="${v.volName}"> </td>
-
-        <td th:text="${v.dateArrivee}"> </td>
+        <td th:text="${v.getVilleDepart().villeName}"> </td>
         <td th:text="${v.dateDepart}">  </td>
+        <td th:text="${v.getVilleArrive().villeName}"> </td>
+        <td th:text="${v.dateArrivee}"> </td>
+
         <td th:text="${v.volPrix}">  </td>
         <td>
           <a style="text-decoration: none;background: #674aaa;padding:7px;border-radius:10px;color:white" class="btn btn-outline-info " href="/reservation">reserve now</a>
