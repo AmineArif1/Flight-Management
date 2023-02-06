@@ -48,28 +48,34 @@ public class VolController {
 
     }
 
+      @RequestMapping("/showAddFlight")
+    public String showAddFlight(Model model)
+    {
+        model.addAttribute("villes" , villeService.listVille());
+         return "addFlightAdmin";
+    }
      @PostMapping("/addFlight")
-    public String addFlight(@ModelAttribute Vol vol,Model model) {
+    public String addFlight(@ModelAttribute Vol vol) {
         volService.addNewVol(vol);
-        List<Ville> villes = villeService.listVille();
-        model.addAttribute("villes" , villes);
-        return "addFlight";
+        return "flightsAdmin";
     }
      @GetMapping("/delete/{idVol}")
     public String deleteFlight(@PathVariable Long idVol) {
         volService.removeVol(idVol);
         return "flights";
     }
-   
-
-       @GetMapping("/update/{idVol}")
-    public String showUpdateForm(@PathVariable("idVol") Long idVol, Model model) {
-        Optional<Vol> vol = volService.getVolById(idVol);
-        model.addAttribute("vol", vol);
-        List<Ville> villes = villeService.listVille();
-        model.addAttribute("villes" , villes);
+         @GetMapping("/showUpdateFlight/{idVol}")
+    public String showUpdateForm(@PathVariable Long idVol, Model model) {
+        Vol vol = volService.getVolById(idVol).orElse(null);
+        model.addAttribute("flight",vol);
         return "updateFlightAdmin";
     }
+       @RequestMapping("/updateFlight/{idVol}")
+       private void updateFlight(@PathVariable Long idVol, @ModelAttribute Vol vol)
+       {
+    	   volService.updateVol(idVol,vol);
+       }
     
 
+ 
 }
