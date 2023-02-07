@@ -4,7 +4,6 @@
     padding: 0;
 }
 body{
-  /*  background: url(/home.svg) center / cover;*/
     display: flex;
     flex-wrap: wrap;
     width:1200px;
@@ -63,7 +62,6 @@ p{
     margin-left: 100px;
     background-color: #fff;
     min-width: 35%;
-  /*  box-shadow: 0 5px 10px rgba(0,0,0,0.1);*/
 
 
   }

@@ -5,5 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface VIlleRepository extends JpaRepository<Ville,Integer> {
     void deleteVilleByIdville(Long idVille);
+    void findAllByVilleName(String villeName);
 
 }

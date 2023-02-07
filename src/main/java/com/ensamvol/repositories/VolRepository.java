@@ -8,4 +8,5 @@ import java.util.List;
 public interface VolRepository extends JpaRepository<Vol,Long> {
      void deleteVolByIdVol(Long idVol);
 
+
 }

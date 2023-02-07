@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -84,7 +85,19 @@ public class VolController {
        {
     	   volService.updateVol(idVol,vol);
        }
-    
+       @RequestMapping("searchVille")
+       private String searchVol(@RequestParam("ville") String villeSearch ,Model model){
+        List<Vol> vols =volRepository.findAll();
+        List<Vol> searchedVol=new ArrayList<>();
+           for (Vol vol: vols
+                ) {
+               if(vol.getVilleArrive().getVilleName().equals(villeSearch) || vol.getVilleDepart().getVilleName().equals(villeSearch) )
+                   searchedVol.add(vol);
+
+           }
+           model.addAttribute("flights",searchedVol);
+        return "flights";
+       }
 
  
 }

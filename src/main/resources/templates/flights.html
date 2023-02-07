@@ -14,10 +14,10 @@
   <section class="table__header">
     <img src="images/direct-flight.png" height="40px" width="40px">
     <h1>FLIGHTS</h1>
-    <div class="input-group">
-      <input type="search" placeholder="Search Data...">
+    <form action="#" th:action="@{/searchVille}" class="input-group">
+      <input name="ville"   type="search" placeholder="Search Data...">
       <img src="images/search.png" alt="">
-    </div>
+    </form>
 
   </section>
   <section class="table__body">
@@ -27,11 +27,9 @@
         <th> ville de depart <span class="icon-arrow">&UpArrow;</span></th>
         <th> date de depart <span class="icon-arrow">&UpArrow;</span></th>
         <th> ville d'arrivee <span class="icon-arrow">&UpArrow;</span></th>
-
         <th> date d'arrivee <span class="icon-arrow">&UpArrow;</span></th>
         <th> Prix <span class="icon-arrow">&UpArrow;</span></th>
         <th> Book <span class="icon-arrow">&UpArrow;</span></th>
-
       </tr>
       </thead>
       <tbody>
@@ -40,7 +38,6 @@
         <td th:text="${v.dateDepart}">  </td>
         <td th:text="${v.getVilleArrive().villeName}"> </td>
         <td th:text="${v.dateArrivee}"> </td>
-
         <td th:text="${v.volPrix}">  </td>
         <td>
           <a style="text-decoration: none;background: #674aaa;padding:7px;border-radius:10px;color:white" class="btn btn-outline-info " href="/reservation">reserve now</a>

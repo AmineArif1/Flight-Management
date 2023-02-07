@@ -14,8 +14,6 @@
     <title>Form Design</title>
 </head>
 <body>
-
-
 <form  th:action ="@{/reservation_save}" th:object="${billet}" class="reservation row g-3 p-3">
     <header>Passenger information</header>
     <p>veuillez remplir les informations attentivement pour reserver votre billet </p>
@@ -53,7 +51,6 @@
     </div>
     <span class="title">Bags information</span>
     <p>veuillez remplir les informations attentivement pour reserver votre billet </p>
-
     <div class="col-md-6">
         <label for="inputEmail4" class="form-label">number of bags</label>
         <input th:field="*{numBages}" type="number" class="form-control" id="inputEmail4">
@@ -66,13 +63,8 @@
             <option>10kg</option>
             <option>20kg</option>
         </select>
-
     </div>
     </div>
-
-
-
-
     <div class="col-12">
         <button  id="submit" type="submit" class="btn btn-primary buttonReservation">Submit</button>
         <button  id="reset" type="reset" class="btn btn-primary buttonReservation">Reset all</button>
@@ -80,7 +72,6 @@
     </div>
 </form>
 <form class="row g-3 p-3">
-
     <header>Flight Informations</header>
     <div class="flighte">
         <img
@@ -92,7 +83,6 @@
 
         <p> depart:13h:00  Marrkech</p>
         <p> arrvee:14h:00 Madrid</p>
-
     </div>
     <div class="tswira">
         <img src="images/bag.svg">

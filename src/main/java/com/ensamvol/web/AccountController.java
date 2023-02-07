@@ -72,18 +72,13 @@ public class AccountController {
         model.addAttribute("Personne", new Personne());
         System.out.println("I am being saved");
         accountService.addNewUser(user);;
-
-
         return "login";
-
-
     }
     @PostMapping("/addUser")
     public String addUser(Model model){
         Personne personne = new Personne();
         model.addAttribute("AppUser", personne);
         return "addUser";
-
 
     }
 
