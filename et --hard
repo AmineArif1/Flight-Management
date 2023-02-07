@@ -1,0 +1,311 @@
+[33mcommit 38890b8e7e92c8138a52602a00a7bc6a5fac59a4[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: fatiha zaz <93740626+fatihaZaaz@users.noreply.github.com>
+Date:   Sun Feb 5 23:49:14 2023 +0100
+
+    Update Vol.java
+
+[33mcommit fa799956f10e00754780feb24998113f598cbe92[m
+Merge: de88713 f60740d
+Author: El Arif Amine <elarifamine1@gmail.com>
+Date:   Sun Feb 5 22:47:06 2023 +0100
+
+    Merge pull request #3 from AmineArif1/adminPannel
+    
+    dashboard is working fine!
+
+[33mcommit f60740d4e745c7aff5447e1dc879b16cecd52a3c[m
+Author: AmineArif1 <elarifamine1@gmail.com>
+Date:   Sun Feb 5 22:46:09 2023 +0100
+
+    dashboard is working fine!
+
+[33mcommit de887136a9f67f26edfb2c437ca6d9211aa2dcd2[m
+Merge: 1941fde d1c3d4f
+Author: El Arif Amine <elarifamine1@gmail.com>
+Date:   Sun Feb 5 20:22:28 2023 +0100
+
+    Merge pull request #2 from AmineArif1/adminPannel
+    
+    Admin pannel
+
+[33mcommit d1c3d4fd8ee8bead465e172d21cb7d2c6f8b7b66[m
+Author: AmineArif1 <elarifamine1@gmail.com>
+Date:   Sun Feb 5 20:16:48 2023 +0100
+
+    .
+
+[33mcommit 1b5b1cbc63bc52b533fb0c894dfd774f95aa71e0[m
+Author: AmineArif1 <elarifamine1@gmail.com>
+Date:   Sun Feb 5 18:15:55 2023 +0100
+
+    added lots XD
+
+[33mcommit 1941fde6779a77c7e77fb746234e1e071f3f2a4c[m
+Author: simina12 <souheir.yassmine@ensam-casa.ma>
+Date:   Sun Feb 5 01:46:35 2023 +0100
+
+    reservation
+
+[33mcommit e80d0483aac70880ad83e3d20eb6446595301d7a[m
+Author: fatiha zaz <93740626+fatihaZaaz@users.noreply.github.com>
+Date:   Sat Feb 4 21:37:49 2023 +0100
+
+    Update VolController.java
+
+[33mcommit 83cdc26fab810c94f08d0016bdf4d4275d97ca9e[m
+Author: fatiha zaz <93740626+fatihaZaaz@users.noreply.github.com>
+Date:   Sat Feb 4 21:27:05 2023 +0100
+
+    Update VolController.java
+
+[33mcommit 26a01f6088e62df42aa0b882fd6da41145db7370[m
+Author: fatiha zaz <93740626+fatihaZaaz@users.noreply.github.com>
+Date:   Sat Feb 4 21:18:18 2023 +0100
+
+    Update VolController.java
+
+[33mcommit db8196cac93d2ebcad5fb0bd41003d5c6cb699b3[m
+Author: fatiha zaz <93740626+fatihaZaaz@users.noreply.github.com>
+Date:   Sat Feb 4 19:10:37 2023 +0100
+
+    Update VolController.java
+
+[33mcommit 79f062d53e87b2caf350bcab67d8091dcaf0db00[m
+Author: fatiha zaz <93740626+fatihaZaaz@users.noreply.github.com>
+Date:   Sat Feb 4 19:10:00 2023 +0100
+
+    Update VolController.java
+
+[33mcommit b18c8d9eab98eb3719183784b0387600ac4811c9[m
+Author: fatiha zaz <93740626+fatihaZaaz@users.noreply.github.com>
+Date:   Sat Feb 4 19:08:23 2023 +0100
+
+    Update flightUpdateAdmin.html
+
+[33mcommit 4c2233c7ce5a5c82b0776ad46b74cb8fa00564cd[m
+Author: fatiha zaz <93740626+fatihaZaaz@users.noreply.github.com>
+Date:   Sat Feb 4 19:06:54 2023 +0100
+
+    Update addFlightAdmin.html
+
+[33mcommit 4962eb423b13853aec1f2236ac8d36921df690e0[m
+Author: AmineArif1 <elarifamine1@gmail.com>
+Date:   Fri Feb 3 19:53:12 2023 +0100
+
+    fixed.
+
+[33mcommit ca629b38eff91c148a27201c6e6b492b34cf9799[m
+Author: fatiha zaz <93740626+fatihaZaaz@users.noreply.github.com>
+Date:   Fri Feb 3 14:14:02 2023 +0100
+
+    Update VolService.java
+
+[33mcommit 9a3a8a930d26b2967c0f57d0617050db0b483150[m
+Author: fatiha zaz <93740626+fatihaZaaz@users.noreply.github.com>
+Date:   Fri Feb 3 13:05:08 2023 +0100
+
+    Update VolController.java
+
+[33mcommit c39372bfe6dd6141caff2b701ae5c8dfd1c21024[m
+Author: fatiha zaz <93740626+fatihaZaaz@users.noreply.github.com>
+Date:   Fri Feb 3 13:00:12 2023 +0100
+
+    Update VolService.java
+
+[33mcommit 0e40121e6494104b8f656b9877608d16d6986692[m
+Author: fatiha zaz <93740626+fatihaZaaz@users.noreply.github.com>
+Date:   Fri Feb 3 12:59:45 2023 +0100
+
+    Update VolServiceImp.java
+
+[33mcommit 9466e1eb7a9d05ab946e9d305ddc5280cb95881d[m
+Author: fatiha zaz <93740626+fatihaZaaz@users.noreply.github.com>
+Date:   Fri Feb 3 03:08:35 2023 +0100
+
+    Add files via upload
+
+[33mcommit f7f0bd861a18ac8fdc4dbfedb965392f23ca0a57[m
+Author: fatiha zaz <93740626+fatihaZaaz@users.noreply.github.com>
+Date:   Fri Feb 3 03:06:55 2023 +0100
+
+    Delete addFlight.html
+
+[33mcommit c846e5676c0e6906ff705b627990a805288d4c20[m
+Author: fatiha zaz <93740626+fatihaZaaz@users.noreply.github.com>
+Date:   Fri Feb 3 03:06:12 2023 +0100
+
+    Add files via upload
+
+[33mcommit ad356e4eaa56052d63c14e21d2fa9df78096c6f2[m
+Author: fatiha zaz <93740626+fatihaZaaz@users.noreply.github.com>
+Date:   Fri Feb 3 03:04:57 2023 +0100
+
+    Update VolController.java
+
+[33mcommit 0aeb6836cc6a148a67d72a00cd8a5197ebfb63fe[m
+Author: fatiha zaz <93740626+fatihaZaaz@users.noreply.github.com>
+Date:   Fri Feb 3 02:03:42 2023 +0100
+
+    Add files via upload
+
+[33mcommit d72fa915ceb9e4c92ae23ee3c26f4ad0323cf2a4[m
+Author: fatiha zaz <93740626+fatihaZaaz@users.noreply.github.com>
+Date:   Fri Feb 3 02:02:38 2023 +0100
+
+    Update VolController.java
+
+[33mcommit a3b3fe26388aab6c20e913107eb0762485fcfccf[m
+Author: simina12 <souheir.yassmine@ensam-casa.ma>
+Date:   Fri Feb 3 00:58:45 2023 +0100
+
+    page flight dekhlo liha mn navbar
+
+[33mcommit 47b5f9442abd2275dfe438098849f7fce6eeceef[m
+Merge: ed13705 e69de0c
+Author: simina12 <souheir.yassmine@ensam-casa.ma>
+Date:   Thu Feb 2 23:37:55 2023 +0100
+
+    Merge branch 'main' of https://github.com/AmineArif1/Jee_project
+
+[33mcommit ed1370564e458ec9160b3f4d835792fe2a0bdba6[m
+Author: simina12 <souheir.yassmine@ensam-casa.ma>
+Date:   Thu Feb 2 23:35:47 2023 +0100
+
+    flight khdam
+
+[33mcommit e69de0c00f52fb6705a477657c5445e6b4010100[m
+Author: AmineArif1 <elarifamine1@gmail.com>
+Date:   Thu Feb 2 21:53:01 2023 +0100
+
+    FEAT: vols are now dinamique.
+
+[33mcommit c07f86410c37b74ed1aa87adc9defc673c49253b[m
+Author: AmineArif1 <elarifamine1@gmail.com>
+Date:   Thu Feb 2 20:29:25 2023 +0100
+
+    FIX: fix slow loading
+
+[33mcommit f8da10089272ec5bc6d559dfade4f78d194d6c9e[m
+Author: AmineArif1 <elarifamine1@gmail.com>
+Date:   Thu Feb 2 20:14:31 2023 +0100
+
+    fixed: fixed Company
+
+[33mcommit 89b7987609e49776ec5505c2f7d87285a759f0cd[m
+Author: simina12 <souheir.yassmine@ensam-casa.ma>
+Date:   Thu Feb 2 19:55:20 2023 +0100
+
+    page flights
+
+[33mcommit 4647551667115b9f9af1b3c553c02f4e0681c969[m
+Author: AmineArif1 <elarifamine1@gmail.com>
+Date:   Thu Feb 2 17:51:11 2023 +0100
+
+    FEAT: added user ICON .
+    FEAT: added user logout.
+
+[33mcommit 9ed7a0eefb8ebcaf0452fb874d203ac44bc849f5[m
+Author: AmineArif1 <elarifamine1@gmail.com>
+Date:   Thu Feb 2 02:34:27 2023 +0100
+
+    FEAT: added signup
+    FIX: lots
+
+[33mcommit f19a34eca02598db4b269980ca7c33ce5127c531[m
+Author: AmineArif1 <elarifamine1@gmail.com>
+Date:   Thu Feb 2 00:59:44 2023 +0100
+
+    FEAT:integrated signed up
+    FEAT:modified the layout of the index page.
+    FIX: alot just look at the modified files.
+
+[33mcommit 216bf57ad6554639a5afadf8d653f10ce936f204[m
+Author: AmineArif1 <elarifamine1@gmail.com>
+Date:   Wed Feb 1 19:23:02 2023 +0100
+
+    .
+
+[33mcommit b826c620715692f0cc719850c8c737867320be93[m[33m ([m[1;32msalamL3alam[m[33m)[m
+Author: AmineArif1 <elarifamine1@gmail.com>
+Date:   Tue Jan 31 20:26:15 2023 +0100
+
+    .
+
+[33mcommit a0be14ecdd602b04b37b3cd2b55d87725d29a16b[m[33m ([m[1;31morigin/salamL3alam[m[33m, [m[1;32mfixingCurrentVersion[m[33m)[m
+Author: fatiha zaz <93740626+fatihaZaaz@users.noreply.github.com>
+Date:   Tue Jan 24 01:34:17 2023 +0100
+
+    Add files via upload
+
+[33mcommit 539d198c582a39cc8cde5d6ecb3855fa8ed77725[m
+Author: fatiha zaz <93740626+fatihaZaaz@users.noreply.github.com>
+Date:   Tue Jan 24 01:33:46 2023 +0100
+
+    Rename src/main/java/com/ensamvol/Vol.java to src/main/java/com/ensamvol/entities/Vol.java
+
+[33mcommit f9aad32838202b2d54122532c025d3a927eda5f5[m
+Author: fatiha zaz <93740626+fatihaZaaz@users.noreply.github.com>
+Date:   Tue Jan 24 01:33:15 2023 +0100
+
+    Add files via upload
+
+[33mcommit 11ae24dc79a66e2d33c466cd6b06058b6795790f[m
+Author: fatiha zaz <93740626+fatihaZaaz@users.noreply.github.com>
+Date:   Tue Jan 24 01:32:52 2023 +0100
+
+    Delete src/main/java/com/ensamvol/entities directory
+
+[33mcommit c958397579d707d3087c6ba13c855d54c4db4fdf[m
+Author: fatiha zaz <93740626+fatihaZaaz@users.noreply.github.com>
+Date:   Mon Jan 23 22:40:00 2023 +0100
+
+    Delete Billet.java
+
+[33mcommit d7cb6681975922d950788a8017596a84430ec6bc[m
+Author: simina12 <souheir.yassmine@ensam-casa.ma>
+Date:   Wed Jan 4 12:52:53 2023 +0100
+
+    test
+
+[33mcommit 14aac06b7e32f32fbcfdef72209c462d4d151c18[m
+Author: AmineArif1 <elarifamine1@gmail.com>
+Date:   Thu Dec 29 11:48:55 2022 +0100
+
+    it is working now
+    
+    i
+    
+    `
+
+[33mcommit bb13f832f62d3338acad0cd886be552bce8e46cc[m
+Author: simina12 <souheir.yassmine@ensam-casa.ma>
+Date:   Sat Dec 24 19:55:42 2022 +0100
+
+    salam
+
+[33mcommit fe9474d29ef10123bb085f449ecde0c54f7854ea[m
+Merge: 234addc ba8bfe9
+Author: El Arif Amine <elarifamine1@gmail.com>
+Date:   Mon Dec 12 17:07:22 2022 +0100
+
+    Merge pull request #1 from AmineArif1/master
+    
+    Master
+
+[33mcommit ba8bfe90a49352b463e628e23a85c091e36a3e17[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: AmineArif1 <elarifamine1@gmail.com>
+Date:   Thu Dec 8 23:21:42 2022 +0100
+
+    .
+
+[33mcommit 8c76c222c55820e847c785ab2b90a86899d2cf5d[m
+Author: AmineArif1 <elarifamine1@gmail.com>
+Date:   Mon Dec 5 20:04:56 2022 +0100
+
+    .
+
+[33mcommit 234addc720a6c6503ac6f8069c6b61a6124898c3[m
+Author: AmineArif1 <elarifamine1@gmail.com>
+Date:   Mon Dec 5 00:03:06 2022 +0100
+
+    .

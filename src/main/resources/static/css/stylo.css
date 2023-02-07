@@ -6,6 +6,28 @@
 body{
   /*  background: url(/home.svg) center / cover;*/
     display: flex;
+    flex-wrap: wrap;
+    width:1200px;
+    margin:auto;
+
+}
+.buttonReservation{
+    border-color:#605dec ;
+    background:#605dec;
+    color:white;
+    padding:8px;
+}
+@media only screen and (max-width: 600px){
+    body{
+        /*  background: url(/home.svg) center / cover;*/
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        width: 1000px;
+    }
+    .reservation{
+        width: 100%;
+    }
 }
 form{
     background-color: #fff;
@@ -66,7 +88,6 @@ p{
     border-radius: 5px;
     border: #000;
     background-color: rgb(245, 247, 246);
-    margin-left: 30%;
     max-height: 18%;
     box-shadow: 0 5px 10px rgba(0,0,0,0.1);
     margin-top: 30%;

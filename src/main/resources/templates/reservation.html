@@ -16,7 +16,7 @@
 <body>
 
 
-<form  th:action ="@{/reservation_save}" th:object="${billet}" class="row g-3 p-3">
+<form  th:action ="@{/reservation_save}" th:object="${billet}" class="reservation row g-3 p-3">
     <header>Passenger information</header>
     <p>veuillez remplir les informations attentivement pour reserver votre billet </p>
 
@@ -74,8 +74,8 @@
 
 
     <div class="col-12">
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <button  id="reset" type="reset" class="btn btn-primary">Reset all</button>
+        <button  id="submit" type="submit" class="btn btn-primary buttonReservation">Submit</button>
+        <button  id="reset" type="reset" class="btn btn-primary buttonReservation">Reset all</button>
 
     </div>
 </form>
