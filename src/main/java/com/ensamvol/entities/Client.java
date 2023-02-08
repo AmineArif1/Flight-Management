@@ -21,9 +21,8 @@ public class Client {
     private String numPassport;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinTable(name="id_client")
     private Personne personne;
     @OneToMany(mappedBy = "client")
-    private List<Billet> billet;
+    private List<Billet> billets;
 
 }

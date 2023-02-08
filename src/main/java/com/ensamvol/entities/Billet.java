@@ -15,14 +15,13 @@ import java.util.Date;
 public class Billet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  int idBillet;
+    private  Integer idBillet;
     private double billetPrix;
-
-    private double numBages;
     private double numPassenger;
     @ManyToOne
+    @JoinColumn(name = "client_id")
     private Client client;
-    @ManyToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Vol vol;
 
 

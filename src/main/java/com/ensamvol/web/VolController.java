@@ -1,14 +1,17 @@
 package com.ensamvol.web;
 
-import com.ensamvol.entities.Billet;
-import com.ensamvol.entities.Ville;
-import com.ensamvol.entities.Vol;
+import com.ensamvol.HelperClass.Reservation;
+import com.ensamvol.entities.*;
+import com.ensamvol.repositories.AppUserRepository;
+import com.ensamvol.repositories.ClientRepository;
 import com.ensamvol.repositories.VolRepository;
 import com.ensamvol.repositories.VIlleRepository;
 import com.ensamvol.service.BilletService;
 import com.ensamvol.service.VilleService;
 import com.ensamvol.service.VolService;
 import com.ensamvol.service.VolServiceImp;
+import java.util.Random;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,11 +26,21 @@ import java.util.Optional;
 public class VolController {
     @Autowired
     private VolRepository volRepository;
+    @Autowired
     private VolService volService ;
+    @Autowired
+
     private VilleService villeService;
+    @Autowired
     private VolServiceImp volServiceImp;
+    @Autowired
     private VIlleRepository villeRepository;
+    @Autowired
     private BilletService billetService;
+    @Autowired
+    private AppUserRepository appUserRepository;
+    @Autowired
+    private ClientRepository clientRepository;
     
     @RequestMapping(value = "/flights")
     public String flights(Model model){
@@ -47,15 +60,24 @@ public class VolController {
         return "flightsAdmin";
     }
     @GetMapping("/reservation")
-    public String reservation(Model model){
+    public String reservation(@RequestParam("idVol") Long idVol,Model model){
+        model.addAttribute("idVol",idVol);
         model.addAttribute("billet",new Billet());
+        model.addAttribute("Reservation",new Reservation());
         return "reservation";
     }
     @PostMapping("reservation_save")
-    public String saveReservation( Billet billet){
+    public String saveReservation(Reservation reservation,@RequestParam("idVol") Long idVol,Model model){
+        Personne personne= appUserRepository.findByUsername(reservation.getEmail());
+        Vol vol = volRepository.getReferenceById(idVol);
+        Random random = new Random();
+        int randomNumber = random.nextInt(850) + 1;
+        Billet billet = new Billet(null,vol.getVolPrix(),randomNumber,null,vol);
+        Client client = new Client(null,reservation.getPassport(),personne,new ArrayList<>());
+        billet.setClient(client);
+        clientRepository.save(client);
         billetService.saveBillet(billet);
         return "redirect:/flights";
-
     }
 
       @RequestMapping("/showAddFlight")
@@ -91,13 +113,10 @@ public class VolController {
         List<Vol> searchedVol=new ArrayList<>();
            for (Vol vol: vols
                 ) {
-               if(vol.getVilleArrive().getVilleName().equals(villeSearch) || vol.getVilleDepart().getVilleName().equals(villeSearch) )
+               if(vol.getVilleArrive().getVilleName().toLowerCase().equals(villeSearch.toLowerCase()) || vol.getVilleDepart().getVilleName().toLowerCase().equals(villeSearch.toLowerCase()) )
                    searchedVol.add(vol);
-
            }
            model.addAttribute("flights",searchedVol);
         return "flights";
        }
-
- 
 }

@@ -40,7 +40,7 @@
         <td th:text="${v.dateArrivee}"> </td>
         <td th:text="${v.volPrix}">  </td>
         <td>
-          <a style="text-decoration: none;background: #674aaa;padding:7px;border-radius:10px;color:white" class="btn btn-outline-info " href="/reservation">reserve now</a>
+          <a style="text-decoration: none;background: #674aaa;padding:7px;border-radius:10px;color:white" class="btn btn-outline-info "   th:href="@{/reservation(idVol=${v.idVol})}">reserve now</a>
         </td>
       </tr>
 

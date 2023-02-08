@@ -20,7 +20,7 @@ public class DashboardServiceImp implements DashboardService{
     public double totalRevenue() {
         double sumRevenue = 0;
         for (Client client: clientRepository.findAll()){
-        for (Billet b:client.getBillet())
+        for (Billet b:client.getBillets())
               {
                   sumRevenue+=b.getBilletPrix();
 
@@ -33,7 +33,7 @@ public class DashboardServiceImp implements DashboardService{
     public double totalBillet() {
         double totalBillet = 0;
         for (Client client: clientRepository.findAll()){
-            totalBillet+=client.getBillet().size();
+            totalBillet+=client.getBillets().size();
         }
         return totalBillet;
     }

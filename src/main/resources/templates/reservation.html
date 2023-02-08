@@ -14,57 +14,54 @@
     <title>Form Design</title>
 </head>
 <body>
-<form  th:action ="@{/reservation_save}" th:object="${billet}" class="reservation row g-3 p-3">
+<form method="post"  th:action ="@{/reservation_save}" th:object="${Reservation}" class="reservation row g-3 p-3">
     <header>Passenger information</header>
     <p>veuillez remplir les informations attentivement pour reserver votre billet </p>
 
     <span  class="title">Passenger 1 (Adult)</span>
     <div class="col-md-4">
         <label for="validationDefault01" class="form-label">First name</label>
-        <input type="text" class="form-control" id="validationDefault01" placeholder="firt name" required>
+        <input th:field="*{FirstName}" type="text" class="form-control" id="validationDefault01" placeholder="firt name" required>
     </div>
     <div class="col-md-4">
         <label for="validationDefault02" class="form-label">Middle</label>
-        <input type="text" class="form-control" id="validationDefault02" placeholder="middle name" >
+        <input th:field="*{LastName}" type="text" class="form-control" id="validationDefault02" placeholder="last name" >
     </div>
     <div class="col-md-4">
         <label for="validationDefaultUsername" class="form-label">Last name</label>
         <div class="input-group">
-            <input type="text" class="form-control" id="validationDefaultUsername" placeholder="last name" aria-describedby="inputGroupPrepend2" required>
+            <input th:field="*{Passport}"  type="text" class="form-control" id="validationDefaultUsername" placeholder="passport" aria-describedby="inputGroupPrepend2" required>
         </div>
     </div>
     <div class="col-md-6">
         <label for="inputEmail4" class="form-label">Birth</label>
-        <input type="date" class="form-control" id="inputEmail4">
+        <input  th:field="*{Birth}" type="date" class="form-control" id="inputEmail4">
     </div>
     <div class="col-md-6">
         <label for="inputPassword4" class="form-label">Phone Number</label>
-        <input type="text" class="form-control" id="inputPassword4">
+        <input th:field="*{Number}" type="text" class="form-control" id="inputPassword4">
     </div>
     <div class="col-md-6">
         <label for="inputEmail4" class="form-label">Email</label>
-        <input type="email" class="form-control" id="inputEmail4">
-    </div>
-    <div class="col-md-6">
-        <label for="inputPassword4" class="form-label">Knowen passanger number</label>
-        <input type="number" th:field="*{numPassenger}" class="form-control" id="inputPassword4">
+        <input th:field="*{Email}" type="email" class="form-control" id="inputEmail4">
     </div>
     <span class="title">Bags information</span>
     <p>veuillez remplir les informations attentivement pour reserver votre billet </p>
     <div class="col-md-6">
         <label for="inputEmail4" class="form-label">number of bags</label>
-        <input th:field="*{numBages}" type="number" class="form-control" id="inputEmail4">
+        <input th:field="*{Bags}" type="number" class="form-control" id="inputEmail4">
     </div>
     <div class="col-md-6">
         <label class="form-label">weight</label>
-        <select  class="form-control"required>
-            <option disabled selected>Select weight of your bags</option>
-            <option>1kg</option>
-            <option>10kg</option>
-            <option>20kg</option>
+        <select th:field="*{WeightBags}"   class="form-control"required>
+            <option value="0" disabled selected>Select weight of your bags</option>
+            <option value="10">10kg</option>
+            <option value="20">20kg</option>
+            <option value="30">30kg</option>
         </select>
     </div>
     </div>
+    <input type="hidden" name="idVol" th:value="${idVol}" />
     <div class="col-12">
         <button  id="submit" type="submit" class="btn btn-primary buttonReservation">Submit</button>
         <button  id="reset" type="reset" class="btn btn-primary buttonReservation">Reset all</button>
