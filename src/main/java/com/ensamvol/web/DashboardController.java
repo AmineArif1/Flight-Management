@@ -1,5 +1,7 @@
 package com.ensamvol.web;
 
+import com.ensamvol.repositories.BilletRepository;
+import com.ensamvol.repositories.ClientRepository;
 import com.ensamvol.service.DashboardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,8 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class DashboardController {
 
     DashboardService dashboardService;
-    public DashboardController(DashboardService dashboardService){
+    BilletRepository billetRepository;
+    
+    public DashboardController(DashboardService dashboardService,BilletRepository billetRepository){
         this.dashboardService = dashboardService;
+        this.billetRepository = billetRepository;
+
     }
 
     @GetMapping(value = "dashboard")
@@ -24,6 +30,8 @@ public class DashboardController {
         model.addAttribute("totalFlights",dashboardService.totalFlights());
         model.addAttribute("totalClients",dashboardService.totalClients());
         model.addAttribute("growthPercentage",Math.abs(5000-dashboardService.totalRevenue())/5000);
+        model.addAttribute("billets",billetRepository.findAll());
+
         return new ModelMap();
     }
 
