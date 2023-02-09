@@ -47,4 +47,5 @@ public class DashboardServiceImp implements DashboardService{
     public Integer totalClients() {
         return clientRepository.findAll().size();
     }
+
 }

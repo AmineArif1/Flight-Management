@@ -23,7 +23,7 @@ public class DashboardController {
         model.addAttribute("totalBillet",dashboardService.totalBillet());
         model.addAttribute("totalFlights",dashboardService.totalFlights());
         model.addAttribute("totalClients",dashboardService.totalClients());
-
+        model.addAttribute("growthPercentage",Math.abs(5000-dashboardService.totalRevenue())/5000);
         return new ModelMap();
     }
 
