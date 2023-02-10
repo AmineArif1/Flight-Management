@@ -1,31 +1,28 @@
 <div th:insert="header"></div>
-<div th:insert="header" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
-     xmlns:th="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
-     xmlns:th="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
-     xmlns:th="http://www.w3.org/1999/xhtml"></div>
-<body>
-<form action="@{/addFlight}" method="post">
-  <input type="hidden" name="idVol" value="{{flight.idVol}}">
+
+<form th:action="@{/addFlightAdmin}" method="post">
+  <input type="hidden" name="idVol" >
   <div>
     <label for="dateArrivee">Date d'arrivée:</label>
-    <input type="date" id="dateArrivee" name="dateArrivee" >
+    <input type="date" id="dateArrivee" name="dateArrivee" pattern="yyyy-MM-dd">
   </div>
   <div>
     <label for="dateDepart">Date de départ:</label>
-    <input type="date" id="dateDepart" name="dateDepart" >
+    <input type="date" id="dateDepart" name="dateDepart" pattern="yyyy-MM-dd" >
   </div>
         <div>
-    <label for="volName">Date de départ:</label>
+    <label for="volName">Ville de départ:</label>
    	<select>
-  		<option th:each="ville : ${villes}" th:value="${ville}" th:text="${ville.villeName}"></option>
-	</select>
+  		 <option name="villeDepart" th:each="ville : ${villes}" th:value="${ville}" th:text="${ville.villeName}"></option>
+	 </select>
   </div>
    <div>
-    <label for="volName">Date d'arrivée:</label>
+    <label for="volName">Ville d'arrivée:</label>
    	<select>
-  		<option th:each="ville : ${villes}" th:value="${ville}" th:text="${ville.villeName}"></option>
+  		<option   name="villeArrive" th:each="ville : ${villes}" th:value="${ville}" th:text="${ville.villeName}"></option>
 	</select>
-  </div>
+	</div>
+  
   
   <div>
     <label for="volName">Nom du vol:</label>
