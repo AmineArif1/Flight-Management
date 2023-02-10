@@ -17,10 +17,10 @@ public class Vol {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idVol;
-    private Date dateArrivee;
-    private  Date dateDepart;
+    private String dateArrivee;
+    private String dateDepart;
     private String volName;
-    private byte[] volImage;
+    private String volImage;
     private String volDescription;
     private Long volPrix;
     @OneToMany(mappedBy = "vol")
