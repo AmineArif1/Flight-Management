@@ -1,42 +1,50 @@
 <div th:insert="header"></div>
-<form action="@{/updateFlight/{flight.idVol}}" method="post">
-  <input type="hidden" name="idVol" value="{{flight.idVol}}">
+<form th:action=@{/updateFlight} th:object="${flight.idVol}" method="post">
+<div>
+  <input type="hidden" name="idVol" th:value="${flight.idVol}">
+  </div>
   <div>
     <label for="dateArrivee">Date d'arrivée:</label>
-    <input type="date" id="dateArrivee" name="dateArrivee" value="{{flight.dateArrivee}}">
+    <input type="date" id="dateArrivee" name="dateArrivee" th:value="${flight.dateArrivee}">
   </div>
   <div>
     <label for="dateDepart">Date de départ:</label>
-    <input type="date" id="dateDepart" name="dateDepart" value="{{flight.dateDepart}}">
+    <input type="date" id="dateDepart" name="dateDepart" th:value="${flight.dateDepart}">
   </div>
      <div>
-    <label for="volName">Date de départ:</label>
-   	<select>
-  		<option th:each="ville : ${villes}" th:value="${ville}" th:text="${ville.villeName}" value="{{flight.villeDepart.villeName}}"></option>
-	</select>
+    <label for="volName">Ville de départ:</label>
+   	 <select>
+  		 <option th:each="ville : ${villes}" th:value="${ville}" 
+  		 th:text="${ville.villeName}" 
+  		  th:selected="${ville == flight.villeDepart}"> 
+  		 </option>
+</select>
   </div>
    <div>
-    <label for="volName">Date d'arrivée:</label>
-   	<select>
-  		<option th:each="ville : ${villes}" th:value="${ville}" th:text="${ville.villeName}" value="{{flight.villeArrivee.villeName}}"></option>
-	</select>
+    <label for="volName">Ville d'arrivée:</label>
+ <select>
+  		 <option th:each="ville : ${villes}" th:value="${ville}" 
+  		 th:text="${ville.villeName}" 
+  		  th:selected="${ville== flight.villeArrive}"> 
+  		 </option>
+</select>
   </div>
   
   <div>
     <label for="volName">Nom du vol:</label>
-    <input type="text" id="volName" name="volName" value="{{flight.volName}}">
+    <input type="text" id="volName" name="volName" th:value="${flight.volName}">
   </div>
   <div>
     <label for="volImage">Image du vol:</label>
-    <input type="text" id="volImage" name="volImage" value="{{flight.volImage}}">
+    <input type="text" id="volImage" name="volImage"th:value="${flight.volImage}">
   </div>
   <div>
     <label for="volDescription">Description du vol:</label>
-    <input type="text" id="volDescription" name="volDescription" value="{{flight.volDescription}}">
+    <input type="text" id="volDescription" name="volDescription"th:value="${flight.volDescription}">
   </div>
   <div>
     <label for="volPrix">Prix du vol:</label>
-    <input type="number" id="volPrix" name="volPrix" value="{{flight.volPrix}}">
+    <input type="number" id="volPrix" name="volPrix" th:value="${flight.volPrix}">
   </div>
   <button type="submit">Update</button>
 </form>
