@@ -1,7 +1,6 @@
 
 <!DOCTYPE html>
 <html xmlns :th="http://www.thymeleaf.org">
-<div sec:authorize="hasAuthority('ADMIN')">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -14,8 +13,10 @@
 <main class="table">
   <section class="table__header">
     <img src="images/direct-flight.png" height="40px" width="40px">
+     <a style="text-decoration: none;background: #674aaa;padding:7px;border-radius:10px;color:white" class="btn btn-outline-info " href="/showAddFlight">Add Flight</a>
     <h1>FLIGHTS</h1>
     <div class="input-group">
+         
       <input type="search" placeholder="Search Data...">
       <img src="images/search.png" alt="">
     </div>
@@ -30,7 +31,9 @@
 
         <th> date d'arrivee <span class="icon-arrow">&UpArrow;</span></th>
         <th> Prix <span class="icon-arrow">&UpArrow;</span></th>
-        <th> Book <span class="icon-arrow">&UpArrow;</span></th>
+        <!-- <th> Book <span class="icon-arrow">&UpArrow;</span></th> -->
+        <th>update
+        <th>delete
 
       </tr>
       </thead>
@@ -41,10 +44,14 @@
         <td th:text="${v.dateArrivee}"> </td>
         <td th:text="${v.dateDepart}">  </td>
         <td th:text="${v.volPrix}">  </td>
-        <td><button type="button" onclick="window.location.href='/delete/{{v.idVol}}'">Delete</button></td>
-        <td><button type="button" onclick="window.location.href='/update/{{v.idVol}}'">Update</button></td>
-        
-      </tr>
+        <td>
+          <a style="text-decoration: none;background: #674aaa;padding:7px;border-radius:10px;color:white" class="btn btn-outline-info " th:href="@{/deleteFlight/{idVol}(idVol=${v.idVol})}">Delete</a>
+        </td>
+        <td>
+          <a style="text-decoration: none;background: #674aaa;padding:7px;border-radius:10px;color:white" class="btn btn-outline-info " th:href="@{/showUpdateFlight/{idVol}(idVol=${v.idVol})}">Update</a>
+        </td>
+     
+      </tr> 
 
 
 
