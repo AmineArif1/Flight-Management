@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>New Flight Available</title>
+</head>
+<body>
+<h1 style="color:#655cfd">New Flight Available</h1>
+<p>Dear <span th:text="${customerName}">Customer</span>,</p>
+<p>We're excited to announce a new flight that has just become available. The flight is to <span th:text="${destination}">Bahamas</span> and is priced at <span th:text="${price}">500</span>.</p>
+<p>With our new flight, you'll be able to reach your desired destination in comfort and style. Don't miss out on this opportunity to fly with us. Book your flight today and experience the world in a whole new way.</p>
+<p>Best regards,</p>
+<p>The Travel Team</p>
+</body>
+</html>

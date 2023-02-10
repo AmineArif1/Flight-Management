@@ -1,5 +1,6 @@
 package com.ensamvol.web;
 
+import com.ensamvol.repositories.AppUserRepository;
 import com.ensamvol.repositories.BilletRepository;
 import com.ensamvol.repositories.ClientRepository;
 import com.ensamvol.service.DashboardService;
@@ -14,14 +15,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(value = "pages")
 public class DashboardController {
 
-    DashboardService dashboardService;
-    BilletRepository billetRepository;
-    
-    public DashboardController(DashboardService dashboardService,BilletRepository billetRepository){
-        this.dashboardService = dashboardService;
-        this.billetRepository = billetRepository;
+        DashboardService dashboardService;
+        BilletRepository billetRepository;
+        AppUserRepository appUserRepository;
 
-    }
+        public DashboardController(DashboardService dashboardService,BilletRepository billetRepository,AppUserRepository appUserRepository){
+            this.dashboardService = dashboardService;
+            this.billetRepository = billetRepository;
+            this.appUserRepository = appUserRepository;
+
+        }
 
     @GetMapping(value = "dashboard")
     public ModelMap mmDashboard(Model model) {
@@ -31,6 +34,7 @@ public class DashboardController {
         model.addAttribute("totalClients",dashboardService.totalClients());
         model.addAttribute("growthPercentage",Math.abs(5000-dashboardService.totalRevenue())/5000);
         model.addAttribute("billets",billetRepository.findAll());
+        model.addAttribute("users",appUserRepository.findAll());
 
         return new ModelMap();
     }

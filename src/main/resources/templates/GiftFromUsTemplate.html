@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>A Gift from Us for Being Loyal</title>
+</head>
+<body>
+<h1 style="color:#655cfd">❤️A Gift from Us for Being Loyal ❤️</h1>
+<p>Dear <span th:text="${customerName}">Customer</span>,</p>
+<p>We wanted to take a moment to thank you for your loyalty to our company. You have been a valued customer for <span th:text="${loyaltyDuration}">N/A</span> years, and we appreciate your continued support.</p>
+<p>As a token of our appreciation, we would like to offer you a <b> <span th:text="${giftName}">N/A</span></b> as a gift from us. We hope that you enjoy it and that it brings a smile to your face.</p>
+<p>If you have any questions or concerns, please do not hesitate to reach out to us. Our customer support team is available 24/7 to assist you.</p>
+<p>Best regards,</p>
+<p>The Tripma Team</p>
+</body>
+</html>
