@@ -51,14 +51,6 @@ public class VolController {
 
 
 
-
-
-        @RequestMapping(value = "/flightsAdmin")
-    public String flightsAdmin(Model model){
-        List<Vol> vols=volRepository.findAll();
-        model.addAttribute("flights",vols);
-        return "flightsAdmin";
-    }
     @GetMapping("/reservation")
     public String reservation(@RequestParam("idVol") Long idVol,Model model){
         model.addAttribute("idVol",idVol);
@@ -67,7 +59,7 @@ public class VolController {
         return "reservation";
     }
     @PostMapping("reservation_save")
-    public String saveReservation(Reservation reservation,@RequestParam("idVol") Long idVol,Model model){
+   /* public String saveReservation(Reservation reservation,@RequestParam("idVol") Long idVol,Model model){
         Personne personne= appUserRepository.findByUsername(reservation.getEmail());
         Vol vol = volRepository.getReferenceById(idVol);
         Random random = new Random();
@@ -78,35 +70,8 @@ public class VolController {
         clientRepository.save(client);
         billetService.saveBillet(billet);
         return "redirect:/flights";
-    }
+    }*/
 
-      @RequestMapping("/showAddFlight")
-    public String showAddFlight(Model model)
-    {
-        model.addAttribute("villes" , villeService.listVille());
-         return "addFlightAdmin";
-    }
-     @PostMapping("/addFlight")
-    public String addFlight(@ModelAttribute Vol vol) {
-        volService.addNewVol(vol);
-        return "flightsAdmin";
-    }
-     @GetMapping("/delete/{idVol}")
-    public String deleteFlight(@PathVariable Long idVol) {
-        volService.removeVol(idVol);
-        return "flights";
-    }
-         @GetMapping("/showUpdateFlight/{idVol}")
-    public String showUpdateForm(@PathVariable Long idVol, Model model) {
-        Vol vol = volService.getVolById(idVol).orElse(null);
-        model.addAttribute("flight",vol);
-        return "updateFlightAdmin";
-    }
-       @RequestMapping("/updateFlight/{idVol}")
-       private void updateFlight(@PathVariable Long idVol, @ModelAttribute Vol vol)
-       {
-    	   volService.updateVol(idVol,vol);
-       }
        @RequestMapping("searchVille")
        private String searchVol(@RequestParam("ville") String villeSearch ,Model model){
         List<Vol> vols =volRepository.findAll();
@@ -119,4 +84,49 @@ public class VolController {
            model.addAttribute("flights",searchedVol);
         return "flights";
        }
+       
+     //admin CRUD
+       @RequestMapping("/showAddFlight")
+       public String showAddFlight(Model model)
+       {
+       	  List<Ville> villes = villeService.listVille();
+       	  //System.out.println(villes);
+       	  model.addAttribute("villes" , villes);
+            return "addFlightAdmin";
+       }
+       
+       
+       @RequestMapping(value = "/flightsAdmin")
+       public String flightsAdmin(Model model){
+           List<Vol> vols=volRepository.findAll();
+           model.addAttribute("flights",vols);
+           return "flightsAdmin";
+       }
+       
+     
+        @PostMapping("/addFlightAdmin")
+       public String addFlight(@ModelAttribute Vol vol) {
+           volService.addNewVol(vol);
+           return "redirect:/flightsAdmin";
+       }
+        
+        @GetMapping("/deleteFlight/{idVol}")
+        public String deleteFlight(@PathVariable Long idVol) {
+            volService.removeVol(idVol);
+            return "redirect:/flightsAdmin";
+        }
+            @GetMapping("/showUpdateFlight/{idVol}")
+       public String showUpdateForm(@PathVariable Long idVol, Model model) {
+           Vol vol = volService.getVolById(idVol).orElse(null);
+           model.addAttribute("flight",vol);
+           List<Ville> villes = villeService.listVille();
+           model.addAttribute("villes" , villes);
+           return "/flightUpdateAdmin";
+       }
+          @RequestMapping("/updateFlight")
+          private String updateFlight( Long idVol, @ModelAttribute Vol vol)
+          {
+       	   volService.updateVol(idVol,vol);
+       	   return  "redirect:/flightsAdmin";
+          }
 }
