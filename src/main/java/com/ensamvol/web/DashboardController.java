@@ -2,9 +2,7 @@ package com.ensamvol.web;
 
 import com.ensamvol.repositories.AppUserRepository;
 import com.ensamvol.repositories.BilletRepository;
-import com.ensamvol.repositories.ClientRepository;
 import com.ensamvol.service.DashboardService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
