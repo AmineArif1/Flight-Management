@@ -2,25 +2,23 @@ package com.ensamvol.web;
 
 import com.ensamvol.HelperClass.Reservation;
 import com.ensamvol.entities.*;
-import com.ensamvol.repositories.AppUserRepository;
-import com.ensamvol.repositories.ClientRepository;
-import com.ensamvol.repositories.VolRepository;
-import com.ensamvol.repositories.VIlleRepository;
+import com.ensamvol.repositories.*;
 import com.ensamvol.service.BilletService;
 import com.ensamvol.service.VilleService;
 import com.ensamvol.service.VolService;
 import com.ensamvol.service.VolServiceImp;
-import java.util.Random;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+import java.util.Random;
 
 @Controller
 public class VolController {
@@ -41,6 +39,8 @@ public class VolController {
     private AppUserRepository appUserRepository;
     @Autowired
     private ClientRepository clientRepository;
+    @Autowired
+    private BilletRepository billetRepository;
     
     @RequestMapping(value = "/flights")
     public String flights(Model model){
@@ -54,12 +54,12 @@ public class VolController {
     @GetMapping("/reservation")
     public String reservation(@RequestParam("idVol") Long idVol,Model model){
         model.addAttribute("idVol",idVol);
-        model.addAttribute("billet",new Billet());
+        model.addAttribute("billet",new BilletController());
         model.addAttribute("Reservation",new Reservation());
         return "reservation";
     }
     @PostMapping("reservation_save")
-   /* public String saveReservation(Reservation reservation,@RequestParam("idVol") Long idVol,Model model){
+    public String saveReservation(Reservation reservation, @RequestParam("idVol") Long idVol, Model model, HttpSession session){
         Personne personne= appUserRepository.findByUsername(reservation.getEmail());
         Vol vol = volRepository.getReferenceById(idVol);
         Random random = new Random();
@@ -69,8 +69,12 @@ public class VolController {
         billet.setClient(client);
         clientRepository.save(client);
         billetService.saveBillet(billet);
-        return "redirect:/flights";
-    }*/
+
+        Billet lastBillet =billetRepository.findAll().get(billetRepository.findAll().size()-1);
+        System.out.println(lastBillet.getIdBillet());
+        session.setAttribute("billet", lastBillet);
+        return "redirect:/billets";
+    }
 
        @RequestMapping("searchVille")
        private String searchVol(@RequestParam("ville") String villeSearch ,Model model){
