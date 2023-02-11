@@ -37,6 +37,7 @@
                                 <td>
                                     <button type="button" class="btn btn-danger">Delete</button>
                                     <button type="button" class="btn btn-primary">Update</button>
+
                                 </td>
 
 
@@ -60,7 +61,7 @@
                             <tr>
                                 <th>id company</th>
                                 <th>nom Company</th>
-                                <th> Actions</th>
+                                <th>Actions</th>
 
                             </tr>
                             </thead>
@@ -129,9 +130,11 @@
 
                                 <td th:text="${v.volPrix}">  </td>
                                 <td>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                    <button type="button" class="btn btn-primary">Update</button>
+                                    <a  class="btn btn-danger " th:href="@{/deleteFlight/{idVol}(idVol=${v.idVol})}">Delete</a>
+                                    <a class="btn btn-primary " th:href="@{/showUpdateFlight/{idVol}(idVol=${v.idVol})}">Update</a>
+
                                 </td>
+
                             </tr>
                             </tbody>
                         </table>

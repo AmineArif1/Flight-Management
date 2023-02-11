@@ -46,6 +46,17 @@ public class TableElements {
         return "pages/table-elements";
 
     }
+    @GetMapping("/deleteFlight/{idVol}")
+    public String deleteFlight(@PathVariable Long idVol) {
+        volService.removeVol(idVol);
+        return "redirect:/pages/table-elements";
+    }
+    @RequestMapping("/updateFlight")
+    private String updateFlight( Long idVol, @ModelAttribute Vol vol)
+    {
+        volService.updateVol(idVol,vol);
+        return "redirect:/pages/table-elements";
+    }
 
 
 
