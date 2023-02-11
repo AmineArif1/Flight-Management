@@ -21,8 +21,34 @@ public class Client {
     private String numPassport;
 
     @OneToOne(cascade = CascadeType.ALL)
+    @JoinTable(name="id_client")
     private Personne personne;
     @OneToMany(mappedBy = "client")
-    private List<Billet> billets;
+    private List<Billet> billet;
+	public Integer getIdClient() {
+		return idClient;
+	}
+	public void setIdClient(Integer idClient) {
+		this.idClient = idClient;
+	}
+	public String getNumPassport() {
+		return numPassport;
+	}
+	public void setNumPassport(String numPassport) {
+		this.numPassport = numPassport;
+	}
+	public Personne getPersonne() {
+		return personne;
+	}
+	
+	public void setPersonne(Personne personne) {
+		this.personne = personne;
+	}
+	public List<Billet> getBillets() {
+		return billet;
+	}
+	public void setBillets(List<Billet> billet) {
+		this.billet = billet;
+	}
 
 }

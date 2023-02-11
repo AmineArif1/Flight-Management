@@ -19,5 +19,23 @@ public class Ville {
     private String villeName;
 	@OneToMany(mappedBy = "ville")
 	private Collection<Aeroport> aeroport;
+	public Integer getIdville() {
+		return idville;
+	}
+	public void setIdville(Integer idville) {
+		this.idville = idville;
+	}
+	public String getVilleName() {
+		return villeName;
+	}
+	public void setVilleName(String villeName) {
+		this.villeName = villeName;
+	}
+	public Collection<Aeroport> getAeroport() {
+		return aeroport;
+	}
+	public void setAeroport(Collection<Aeroport> aeroport) {
+		this.aeroport = aeroport;
+	}
 
 }
