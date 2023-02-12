@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
@@ -58,7 +59,7 @@ public class VolController {
         model.addAttribute("Reservation",new Reservation());
         return "reservation";
     }
-    @PostMapping("reservation_save")
+   /* @PostMapping("reservation_save")
     public String saveReservation(Reservation reservation, @RequestParam("idVol") Long idVol, Model model, HttpSession session){
         Personne personne= appUserRepository.findByUsername(reservation.getEmail());
         Vol vol = volRepository.getReferenceById(idVol);
@@ -74,7 +75,7 @@ public class VolController {
         System.out.println(lastBillet.getIdBillet());
         session.setAttribute("billet", lastBillet);
         return "redirect:/billets";
-    }
+    }*/
 
        @RequestMapping("searchVille")
        private String searchVol(@RequestParam("ville") String villeSearch ,Model model){
@@ -111,26 +112,30 @@ public class VolController {
         @PostMapping("/addFlightAdmin")
        public String addFlight(@ModelAttribute Vol vol) {
            volService.addNewVol(vol);
-           return "redirect:/flightsAdmin";
+           return "redirect:/pages/table-elements";
        }
-        
+       
         @GetMapping("/deleteFlight/{idVol}")
         public String deleteFlight(@PathVariable Long idVol) {
             volService.removeVol(idVol);
-            return "redirect:/flightsAdmin";
+            return "redirect:/pages/table-elements";
         }
             @GetMapping("/showUpdateFlight/{idVol}")
-       public String showUpdateForm(@PathVariable Long idVol, Model model) {
+       public String showUpdateForm(@PathVariable Long idVol, Model model ,ModelMap modelMap) {
            Vol vol = volService.getVolById(idVol).orElse(null);
            model.addAttribute("flight",vol);
+           modelMap.addAttribute("flights",volService.listVol());
            List<Ville> villes = villeService.listVille();
            model.addAttribute("villes" , villes);
-           return "/flightUpdateAdmin";
+           modelMap.addAttribute("display","block");
+           return "/pages/table-elements";
        }
           @RequestMapping("/updateFlight")
-          private String updateFlight( Long idVol, @ModelAttribute Vol vol)
+          private String updateFlight( Long idVol, @ModelAttribute Vol vol,ModelMap modelMap)
           {
        	   volService.updateVol(idVol,vol);
-       	   return  "redirect:/flightsAdmin";
+       	   modelMap.addAttribute("display","none");
+       	   return  "redirect:/pages/table-elements";
+       	   
           }
 }
