@@ -27,14 +27,14 @@
   </div>
         <div class="form-group">
     <label  class="col-sm-3 col-form-label" for="volName">Ville de départ:</label>
-   	<select class="form-control">
-  		 <option name="villeDepart" th:each="ville : ${villes}" th:value="${ville}" th:text="${ville.villeName}"></option>
+   	<select class="form-control" name="villeDepart">
+  		 <option  th:each="ville : ${villes}" th:value="${ville.villeName}" th:text="${ville.villeName}"></option>
 	 </select>
   </div>
    <div class="form-group">
-    <label  class="col-sm-3 col-form-label" for="volName">Ville d'arrivée:</label>
-   	<select class="form-control">
-  		<option   name="villeArrive" th:each="ville : ${villes}" th:value="${ville}" th:text="${ville.villeName}"></option>
+    <label  class="col-sm-3 col-form-label" for="volName" >Ville d'arrivée:</label>
+   	<select class="form-control" name="villeArrive">
+  		<option    th:each="ville : ${villes}" th:value="${ville.villeName}" th:text="${ville.villeName}"></option>
 	</select>
 	</div>
   
