@@ -3,6 +3,145 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <title>Home</title>
+    <style>
+    *{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+
+form {
+   background-color: white ;
+   color: #8565c4;
+   border: 5px solid #8565c4;
+   border-radius: 30px;
+   max-width:700px;
+   display: flex;
+   flex-direction: column;
+   flex: 1;
+   margin-top:auto;
+   margin-bottom: auto;
+   text-align: center;
+   padding-left: 10px;
+   padding-right: 10px;
+   padding-top: 20px;
+
+   
+}
+
+.inputfield{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.buttons{
+display : flex
+}
+.label{ 
+    width: 40%;
+    font-size: 15px;
+    padding-right:0;
+    line-height: 4rem;
+    display: flex;
+    text-align: left;
+    flex: 1;
+}
+
+
+.input{
+    font-size: 15px;
+    width:250px;
+    height: 30px;
+    border: 2px solid #8565c4 ;
+    border-radius: 1rem;
+    background-color: white ;
+    color:#8565c4;
+    align-items: center;
+    display: flex;
+}
+
+input[type=text], input[type=email], input[type=tel] {
+    font-family:'Chakra Petch', sans-serif;
+    padding-left: 15px;
+    font-size: 15px;
+    color: #8565c4;
+}
+
+
+.input:focus { /*this changes the look of the text box when you select it*/
+    outline: 3px solid #8565c4  ;
+    padding-left: 10px;
+    border-radius: 1rem;
+    border-width: 2px;
+    border-color: white;
+}
+.inputfield.agree{
+    align-items: center;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.cancel
+{
+float : left;
+margin-top: -35px;
+margin-bottom : 10px;
+}
+
+
+input[type=submit] {
+    background-color:#8565c4;
+    border:3px solid #8565c4;
+    border-radius: 40px;
+    padding: 15px 15px;
+    margin-top:20px;
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: white;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+input[type=submit]:hover{
+    background-color: #bbddf5;
+    border: 3px solid #bbddf5;
+}
+
+input[type=submit]:active{
+    background-color: white;
+    color:#f6a5a5;
+    border: 3px solid #f6a5a5;
+    border-radius: 40px;
+}
+
+@media screen and (max-width: 750px) {
+    .inputfield {
+      width: 100%;
+      flex-direction: column;
+
+    }
+
+    .inputfield.agree {
+        flex-direction: row;
+    }
+    form{
+        width: 100%;
+        flex-direction: column;
+        min-width: 600px;
+    }
+
+
+}
+
+
+    
+    </style>
 </head>
 <body>
 <section layout:fragment="content">
@@ -98,6 +237,9 @@
                                 <th>
                                     nom du vol
                                 </th>
+                                                             
+                                    <th> desc du vol
+                                </th>
                                 <th>
                                     ville de depart
                                 </th>
@@ -120,21 +262,19 @@
                             </thead>
                             <tbody>
                             <tr th:each="v:${flights}">
+                            <td th:text="${v.volImage}">  </td>
                                 <td th:text="${v.volName}">  </td>
-                                <td th:text="${v.volName}">  </td>
-
-                                <td th:text="${v.getVilleDepart().villeName}"> </td>
+                                 <td th:text="${v.volDescription}">  </td>
+                                <td th:text="${v.getVilleDepart()}"> </td>
                                 <td th:text="${v.dateDepart}">  </td>
-                                <td th:text="${v.getVilleArrive().villeName}"> </td>
+                                <td th:text="${v.getVilleArrive()}"> </td>
                                 <td th:text="${v.dateArrivee}"> </td>
-
                                 <td th:text="${v.volPrix}">  </td>
                                 <td>
                                     <a  class="btn btn-danger " th:href="@{/deleteFlight/{idVol}(idVol=${v.idVol})}">Delete</a>
                                     <a class="btn btn-primary " th:href="@{/showUpdateFlight/{idVol}(idVol=${v.idVol})}">Update</a>
 
                                 </td>
-
                             </tr>
                             </tbody>
                         </table>
@@ -142,6 +282,70 @@
                 </div>
             </div>
         </div>
+        
+        
+       
+			<div id="rectangle" th:style="'z-index:999;padding:2%; position: absolute; top: 6%; left: 37%; width: 40%; height: 65%; display: ' + ${display} + ';'">
+				 <div class="d-flex align-items-center justify-content-center">	
+			<form   th:action=@{/updateFlight} th:object="${flight.idVol}" method="post">
+			<div class="form">
+			<div class="inputfield">
+			  <input type="hidden" class="input" name="idVol" th:value="${flight.idVol}">
+			  </div>
+			  <div class="inputfield">
+			    <label for="dateArrivee" class="label">Date d'arrivée:</label>
+			    <input type="date" id="dateArrivee" name="dateArrivee" th:value="${flight.dateArrivee}" class="input">
+			  </div>
+			  <div class="inputfield">
+			    <label for="dateDepart" class="label">Date de départ:</label>
+			    <input type="date" id="dateDepart" name="dateDepart" th:value="${flight.dateDepart}" class="input">
+			  </div>
+			     <div class="inputfield">
+			    <label for="volName" class="label">Ville de départ:</label>
+			   	 <select class="input">
+			  		 <option th:each="ville : ${villes}" th:value="${ville}" 
+			  		 th:text="${ville.villeName}" 
+			  		  th:selected="${ville == flight.villeDepart}"> 
+			  		 </option>
+			</select>
+			  </div>
+			   <div class="inputfield">
+			    <label for="volName" class="label">Ville d'arrivée:</label>
+			 <select class="input">
+			  		 <option th:each="ville : ${villes}" th:value="${ville}" 
+			  		 th:text="${ville.villeName}" 
+			  		  th:selected="${ville== flight.villeArrive}"> 
+			  		 </option>
+			</select>
+			  </div>
+			  
+			  <div class="inputfield">
+			    <label for="volName" class="label">Nom du vol:</label>
+			    <input type="text" id="volName" name="volName" th:value="${flight.volName}" class="input">
+			  </div>
+			  <div class="inputfield">
+			    <label for="volImage" class="label">Image du vol:</label>
+			    <input type="text" id="volImage" name="volImage"th:value="${flight.volImage}" class="input">
+			  </div>
+			  <div class="inputfield">
+			    <label for="volDescription" class="label">Description du vol:</label>
+			    <input type="text" id="volDescription" name="volDescription"th:value="${flight.volDescription}" class="input">
+			  </div>
+			  <div class="inputfield">
+			    <label for="volPrix" class="label">Prix du vol:</label>
+			    <input type="number" id="volPrix" name="volPrix" th:value="${flight.volPrix}" class="input">
+			  </div>
+			  <div class="buttons"></div>
+			  <div  class="submit" style="margin-left:60%;">
+			  <button  class="btn btn-outline-info " type="submit">Update</button>
+          	</div>
+          	<div class="cancel" style="margin-left:10%;">
+          <a  class="btn btn-outline-info " th:href="@{/pages/table-elements}">Cancel</a>
+			</div>
+			</div>
+			</form>
+        </div>
+      </div>
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
