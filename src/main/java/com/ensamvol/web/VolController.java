@@ -1,6 +1,7 @@
 package com.ensamvol.web;
 
 import com.ensamvol.HelperClass.Reservation;
+import com.ensamvol.HelperClass.VolHelper;
 import com.ensamvol.entities.*;
 import com.ensamvol.repositories.*;
 import com.ensamvol.service.BilletService;
@@ -110,8 +111,18 @@ public class VolController {
        
      
         @PostMapping("/addFlightAdmin")
-       public String addFlight(@ModelAttribute Vol vol) {
-           volService.addNewVol(vol);
+       public String addFlight(@ModelAttribute VolHelper volHelper) {
+           Vol vol = new Vol();
+           vol.setIdVol(null);
+           vol.setVolName(volHelper.getVolName());
+           vol.setVolImage(volHelper.getVolImage());
+           vol.setVolDescription(volHelper.getVolDescription());
+           vol.setVolPrix(volHelper.getVolPrix());
+           vol.setVilleDepart(villeRepository.findByVilleName(volHelper.villeDepart));
+           vol.setVilleArrive(villeRepository.findByVilleName(volHelper.villeArrive));
+           vol.setDateDepart(volHelper.getDateDepart());
+           vol.setDateArrivee(volHelper.getDateArrivee());
+        	volService.addNewVol(vol);
            return "redirect:/pages/table-elements";
        }
        
@@ -131,9 +142,9 @@ public class VolController {
            return "/pages/table-elements";
        }
           @RequestMapping("/updateFlight")
-          private String updateFlight( Long idVol, @ModelAttribute Vol vol,ModelMap modelMap)
+          private String updateFlight( @ModelAttribute VolHelper volHelper,ModelMap modelMap)
           {
-       	   volService.updateVol(idVol,vol);
+       	   volService.updateVol(volHelper);
        	   modelMap.addAttribute("display","none");
        	   return  "redirect:/pages/table-elements";
        	   
