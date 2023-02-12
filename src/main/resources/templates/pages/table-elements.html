@@ -264,9 +264,9 @@ input[type=submit]:active{
                             <td th:text="${v.volImage}">  </td>
                                 <td th:text="${v.volName}">  </td>
                                  <td th:text="${v.volDescription}">  </td>
-                                <td th:text="${v.getVilleDepart()}"> </td>
+                                <td th:text="${v.villeArrive.villeName}"> </td>
                                 <td th:text="${v.dateDepart}">  </td>
-                                <td th:text="${v.getVilleArrive()}"> </td>
+                                <td th:text="${v.villeDepart.villeName}"> </td>
                                 <td th:text="${v.dateArrivee}"> </td>
                                 <td th:text="${v.volPrix}">  </td>
                                 <td>
@@ -286,10 +286,10 @@ input[type=submit]:active{
        
 			<div id="rectangle" th:style="'z-index:999;padding:2%; position: absolute; top: 6%; left: 37%; width: 40%; height: 65%; display: ' + ${display} + ';'">
 				 <div class="d-flex align-items-center justify-content-center">	
-			<form   th:action=@{/updateFlight} th:object="${flight.idVol}" method="post">
+			<form   th:action=@{/updateFlight} th:object="${flight}" method="post">
 			<div class="form">
-			<div class="inputfield">
-			  <input type="hidden" class="input" name="idVol" th:value="${flight.idVol}">
+			 <div class="inputfield">
+			    <input type="hidden" id="idVol" name="idVol" th:value="${flight.idVol}" class="input">
 			  </div>
 			  <div class="inputfield">
 			    <label for="dateArrivee" class="label">Date d'arrivée:</label>
@@ -299,24 +299,24 @@ input[type=submit]:active{
 			    <label for="dateDepart" class="label">Date de départ:</label>
 			    <input type="date" id="dateDepart" name="dateDepart" th:value="${flight.dateDepart}" class="input">
 			  </div>
-			     <div class="inputfield">
-			    <label for="volName" class="label">Ville de départ:</label>
-			   	 <select class="input">
-			  		 <option th:each="ville : ${villes}" th:value="${ville}" 
+			  <div class="inputfield">
+			    <label for="volName" class="label" >Ville de départ:</label>
+			   	 <select class="input" name="villeDepart" >
+			  		 <option th:each="ville : ${villes}" th:value="${ville.villeName}"
 			  		 th:text="${ville.villeName}" 
 			  		  th:selected="${ville == flight.villeDepart}"> 
 			  		 </option>
 			</select>
 			  </div>
-			   <div class="inputfield">
-			    <label for="volName" class="label">Ville d'arrivée:</label>
-			 <select class="input">
-			  		 <option th:each="ville : ${villes}" th:value="${ville}" 
+			    <div class="inputfield">
+			    <label for="volName" class="label" >Ville d'arrivée:</label>
+			 <select class="input"  name="villeArrive">
+			  		 <option th:each="ville : ${villes}" th:value="${ville.villeName}" 
 			  		 th:text="${ville.villeName}" 
 			  		  th:selected="${ville== flight.villeArrive}"> 
 			  		 </option>
 			</select>
-			  </div>
+			  </div> <!-- -->
 			  
 			  <div class="inputfield">
 			    <label for="volName" class="label">Nom du vol:</label>
@@ -344,7 +344,7 @@ input[type=submit]:active{
 			</div>
 			</form>
         </div>
-      </div>
+      </div> <!-- -->
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
