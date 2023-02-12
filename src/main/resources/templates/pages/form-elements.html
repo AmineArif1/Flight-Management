@@ -13,24 +13,54 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Default form</h4>
-                            <p class="card-description">
-                                Basic form layout
-                            </p>
-                            <form class="forms-sample">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Email address</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Password</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                                </div>
-                                <button type="submit" class="btn btn-success mr-2">Submit</button>
-                                <button class="btn btn-light">Cancel</button>
-                            </form>
-                        </div>
-                    </div>
+                            <h4 class="card-title">Add Flight</h4>
+ 
+ <form th:action="@{/addFlightAdmin}" method="post">
+  <input type="hidden" name="idVol" >
+  <div class="form-group">
+    <label  class="col-sm-3 col-form-label" for="dateArrivee">Date d'arrivée:</label>
+    <input class="form-control"  type="date" id="dateArrivee" name="dateArrivee" pattern="yyyy-MM-dd">
+  </div>
+  <div class="form-group">
+    <label  class="col-sm-3 col-form-label" for="dateDepart">Date de départ:</label>
+    <input class="form-control" type="date" id="dateDepart" name="dateDepart" pattern="yyyy-MM-dd" >
+  </div>
+        <div class="form-group">
+    <label  class="col-sm-3 col-form-label" for="volName">Ville de départ:</label>
+   	<select class="form-control">
+  		 <option name="villeDepart" th:each="ville : ${villes}" th:value="${ville}" th:text="${ville.villeName}"></option>
+	 </select>
+  </div>
+   <div class="form-group">
+    <label  class="col-sm-3 col-form-label" for="volName">Ville d'arrivée:</label>
+   	<select class="form-control">
+  		<option   name="villeArrive" th:each="ville : ${villes}" th:value="${ville}" th:text="${ville.villeName}"></option>
+	</select>
+	</div>
+  
+  
+  <div class="form-group">
+    <label class="col-sm-3 col-form-label" for="volName">Nom du vol:</label>
+    <input class="form-control" type="text" id="volName" name="volName" >
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3 col-form-label" for="volImage">Image du vol:</label>
+    <input class="form-control" type="text" id="volImage" name="volImage" >
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3 col-form-label" for="volDescription">Description du vol:</label>
+    <input class="form-control" type="text" id="volDescription" name="volDescription" >
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3 col-form-label" for="volPrix">Prix du vol:</label>
+    <input class="form-control" type="number" id="volPrix" name="volPrix" >
+  </div>
+  <button class="btn btn-success mr-2" type="submit">Add</button>
+</form>
+ 
+ 
+			          	</div>
+			          </div>
                 </div>
                 <div class="col-12 stretch-card">
                     <div class="card">
