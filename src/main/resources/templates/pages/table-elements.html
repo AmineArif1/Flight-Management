@@ -12,8 +12,8 @@
 
 form {
    background-color: white ;
-   color: #8565c4;
-   border: 5px solid #8565c4;
+   color: #0ba6ff;
+   border: 5px solid #0ba6ff;
    border-radius: 30px;
    max-width:700px;
    display: flex;
@@ -55,27 +55,27 @@ display : flex
 
 
 .input{
-    font-size: 15px;
+    font-size: 14px;
     width:250px;
     height: 30px;
-    border: 2px solid #8565c4 ;
+    border: 2px solid #0ba6ff ;
     border-radius: 1rem;
     background-color: white ;
-    color:#8565c4;
+    color:#222222;
     align-items: center;
     display: flex;
+    padding : 0 14px;
 }
 
 input[type=text], input[type=email], input[type=tel] {
     font-family:'Chakra Petch', sans-serif;
     padding-left: 15px;
     font-size: 15px;
-    color: #8565c4;
 }
 
 
 .input:focus { /*this changes the look of the text box when you select it*/
-    outline: 3px solid #8565c4  ;
+    outline: 3px solid #0ba6ff  ;
     padding-left: 10px;
     border-radius: 1rem;
     border-width: 2px;
@@ -97,8 +97,7 @@ margin-bottom : 10px;
 
 
 input[type=submit] {
-    background-color:#8565c4;
-    border:3px solid #8565c4;
+    border:3px solid #0ba6ff;
     border-radius: 40px;
     padding: 15px 15px;
     margin-top:20px;
@@ -337,10 +336,10 @@ input[type=submit]:active{
 			  </div>
 			  <div class="buttons"></div>
 			  <div  class="submit" style="margin-left:60%;">
-			  <button  class="btn btn-outline-info " type="submit">Update</button>
+			  <button  class="btn btn-primary " type="submit">Update</button>
           	</div>
           	<div class="cancel" style="margin-left:10%;">
-          <a  class="btn btn-outline-info " th:href="@{/pages/table-elements}">Cancel</a>
+          <a  class="btn btn-danger " th:href="@{/pages/table-elements}">Cancel</a>
 			</div>
 			</div>
 			</form>
