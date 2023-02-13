@@ -6,7 +6,10 @@ import com.ensamvol.repositories.EmployeeRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
+import javax.transaction.Transactional;
 @Service
+@Transactional
 public class EmployeeImp implements EmployeeService {
     final EmployeeRepository employeeRepository;
     final AccountService accountService;
@@ -30,7 +33,7 @@ public class EmployeeImp implements EmployeeService {
     }
 
     @Override
-    public void removeEmployee(Long idEmployee) {
+    public void removeEmployee(Integer idEmployee) {
         employeeRepository.deleteEmployeeByIdEmployee(idEmployee);
 
     }
