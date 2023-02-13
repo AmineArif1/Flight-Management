@@ -8,11 +8,10 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
-@Transactional
 public interface EmployeeService {
     void addNewEmployee(Employee employee);
     List<Employee> listEmployee();
-    void removeEmployee(Long idEmployee);
+    void removeEmployee(Integer idEmployee);
     void saveEmployee(Employee employee);
     Personne loadUserEmployee(int id);
 }
