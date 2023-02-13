@@ -173,8 +173,8 @@ input[type=submit]:active{
                                 <td th:text="${e.personne.dateNaissance}"></td>
                                 <td th:text="${e.personne.CIN}"></td>
                                 <td>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                    <button type="button" class="btn btn-primary">Update</button>
+                                     <a  class="btn btn-danger " th:href="@{/deleteEmployee/{idEmployee}(idEmployee=${e.idEmployee})}">Delete</a>
+                                    <a class="btn btn-primary " th:href="@{pages/showUpdateEmployee/{idEmployee}(idEmployee=${e.idEmployee})}">Update</a>
 
                                 </td>
 
