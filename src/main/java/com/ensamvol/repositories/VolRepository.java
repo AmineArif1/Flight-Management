@@ -1,10 +1,12 @@
 package com.ensamvol.repositories;
 
-import com.ensamvol.entities.Ville;
+import com.ensamvol.entities.Vol;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface VIlleRepository extends JpaRepository<Ville,Integer> {
-    void deleteVilleByIdville(Long idVille);
-    Ville findByVilleName(String villeName);
-   
+import java.util.List;
+
+public interface VolRepository extends JpaRepository<Vol,Long> {
+     void deleteVolByIdVol(Long idVol);
+
+
 }
