@@ -5,6 +5,7 @@ import com.ensamvol.HelperClass.VolHelper;
 import com.ensamvol.entities.*;
 import com.ensamvol.repositories.*;
 import com.ensamvol.service.BilletService;
+import com.ensamvol.service.EmployeeService;
 import com.ensamvol.service.VilleService;
 import com.ensamvol.service.VolService;
 import com.ensamvol.service.VolServiceImp;
@@ -24,13 +25,18 @@ import java.util.Random;
 
 @Controller
 public class VolController {
+	  @Autowired
+	    private CompanyRepository companyRepository;
     @Autowired
     private VolRepository volRepository;
     @Autowired
     private VolService volService ;
-    @Autowired
-
-    private VilleService villeService;
+    @Autowired 
+	private EmployeeService employeeService;
+	@Autowired 
+	private EmployeeRepository employeeRepository;
+	@Autowired
+	private VilleService villeService;
     @Autowired
     private VolServiceImp volServiceImp;
     @Autowired
@@ -43,6 +49,8 @@ public class VolController {
     private ClientRepository clientRepository;
     @Autowired
     private BilletRepository billetRepository;
+    @Autowired 
+    private AppRoleRepository appRoleRepository;
     
     @RequestMapping(value = "/flights")
     public String flights(Model model){
@@ -77,6 +85,8 @@ public class VolController {
         session.setAttribute("billet", lastBillet);
         return "redirect:/billets";
     }*/
+    
+ 
 
        @RequestMapping("searchVille")
        private String searchVol(@RequestParam("ville") String villeSearch ,Model model){
@@ -134,18 +144,31 @@ public class VolController {
             @GetMapping("/showUpdateFlight/{idVol}")
        public String showUpdateForm(@PathVariable Long idVol, Model model ,ModelMap modelMap) {
            Vol vol = volService.getVolById(idVol).orElse(null);
-           model.addAttribute("flight",vol);
+           model.addAttribute("flight",vol); 
+           //les valeurs initales lorsque udpdate form is hidden
            modelMap.addAttribute("flights",volService.listVol());
            List<Ville> villes = villeService.listVille();
-           model.addAttribute("villes" , villes);
+           List<Vol> vols = volRepository.findAll();
+           model.addAttribute("flights", vols);
+           List<Employee> employees=employeeRepository.findAll();
+           model.addAttribute("employees",employees);
+           model.addAttribute("company",companyRepository.getById(6));
+           model.addAttribute("flight",volRepository.getById(46L));
+           model.addAttribute("employee",employeeRepository.getById(57));
+           model.addAttribute("roles",appRoleRepository.findAll());
+           model.addAttribute("villes",villeService.listVille());
+           List<Company> companies =companyRepository.findAll();
+           model.addAttribute("companies",companies);
            modelMap.addAttribute("display","block");
+           modelMap.addAttribute("displayCompany","none");
+           modelMap.addAttribute("displayEmployee","none");
+           //
            return "/pages/table-elements";
        }
           @RequestMapping("/updateFlight")
           private String updateFlight( @ModelAttribute VolHelper volHelper,ModelMap modelMap)
           {
        	   volService.updateVol(volHelper);
-       	   modelMap.addAttribute("display","none");
        	   return  "redirect:/pages/table-elements";
        	   
           }
