@@ -9,7 +9,7 @@
     margin:0;
     padding:0;
 }
-
+ 
 form {
    background-color: white ;
    color: #0ba6ff;
@@ -28,7 +28,8 @@ form {
 
    
 }
-
+.checkbox{
+margin-left:15px;}
 .inputfield{
     width: 100%;
     display: flex;
@@ -67,7 +68,7 @@ display : flex
     padding : 0 14px;
 }
 
-input[type=text], input[type=email], input[type=tel] {
+input[type=text], input[type=email] {
     font-family:'Chakra Petch', sans-serif;
     padding-left: 15px;
     font-size: 15px;
@@ -174,7 +175,7 @@ input[type=submit]:active{
                                 <td th:text="${e.personne.CIN}"></td>
                                 <td>
                                      <a  class="btn btn-danger " th:href="@{/deleteEmployee/{idEmployee}(idEmployee=${e.idEmployee})}">Delete</a>
-                                    <a class="btn btn-primary " th:href="@{pages/showUpdateEmployee/{idEmployee}(idEmployee=${e.idEmployee})}">Update</a>
+                                    <a class="btn btn-primary " th:href="@{/showUpdateEmployee/{idEmployee}(idEmployee=${e.idEmployee})}">Update</a>
 
                                 </td>
 
@@ -188,6 +189,59 @@ input[type=submit]:active{
                 </div>
             </div>
         </div>
+         <!-- Update Form for employee -->
+              
+		<div id="rectangle" th:style="'z-index:999;padding:2%; position: absolute; top: 6%; left: 37%; width: 40%; height: 65%; display: ' + ${displayEmployee} + ';'">
+		 <div class="d-flex align-items-center justify-content-center">	
+			<form   th:action="@{/updateEmployee/}" th:object="${employee}" method="post">
+			<div class="form">
+			 <div class="inputfield">
+			    <input type="hidden" id="idVol" name="idEmployee" th:value="${employee.idEmployee}" class="input">
+			  </div>
+			  <div class="inputfield">
+			    <label for="CIN" class="label">CIN</label>
+			    <input type="text" id="personne.CIN" name="CIN" th:value="${employee.personne.CIN}" class="input">
+			  </div>
+			 <div class="inputfield">
+			    <label for="nom" class="label">nom</label>
+			    <input type="text" id="personne.nom" name="nom" th:value="${employee.personne.nom}" class="input">
+			  </div>
+			   <div class="inputfield">
+			    <label for="prenom" class="label">prenom</label>
+			    <input type="text"  name="prenom" th:value="${employee.personne.prenom}" class="input">
+			  </div>
+			   <div class="inputfield">
+			    <label for="dateNaissance" class="label">Date De Naissance</label>
+			    <input type="date"  name="dateNaissance" th:value="${employee.personne.dateNaissance}" class="input">
+			  </div>
+			  
+			  
+			  <div class="inputfield">
+			    <label for="username" class="label">username</label>
+			    <input type="text"  name="username" th:value="${employee.personne.username}" class="input">
+			  </div>
+			   <div class="inputfield">
+			    <label for="password" class="label">password</label>
+			    <input type="password"  name="password" th:value="${employee.personne.password}" class="input">
+			  </div>
+			  <div class="inputfield">
+	  			   <label for="roleName" class="label">roles</label>
+			  	<div th:each="role: ${roles}" >
+			  	<input type="checkbox" class="checkbox" th:value="${role.roleName}" th:text="${role.roleName}" name="roleName">
+			 </div>
+			 </div>
+			  
+			  <div class="buttons"></div>
+			  <div  class="submit" style="margin-left:60%;">
+			  <button  class="btn btn-primary " type="submit">Update</button>
+          	</div>
+          	<div class="cancel" style="margin-left:10%;">
+          <a  class="btn btn-danger " th:href="@{/pages/table-elements}">Cancel</a>
+			</div><!--  -->
+			</div>
+			</form>
+        </div>
+      </div>
         <div class="col-lg-6 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
@@ -208,8 +262,9 @@ input[type=submit]:active{
                                 <td th:text="${c.idCompany}"></td>
                                 <td th:text="${c.companyName}"></td>
                                 <td>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                    <button type="button" class="btn btn-primary">Update</button>
+                                    <a  class="btn btn-danger " th:href="@{/deleteCompany/{idCompany}(idCompany=${c.idCompany})}">Delete</a>
+                                    <a class="btn btn-primary " th:href="@{/showUpdateCompany/{idCompany}(idCompany=${c.idCompany})}">Update</a>
+
                                 </td>
 
                             </tr>
@@ -220,6 +275,34 @@ input[type=submit]:active{
                 </div>
             </div>
         </div>
+        
+         
+        <!-- Update Form for Company -->
+              
+		<div id="rectangle" th:style="'z-index:999;padding:2%; position: absolute; top: 6%; left: 37%; width: 40%; height: 65%; display: ' + ${displayCompany} + ';'">
+		 <div class="d-flex align-items-center justify-content-center">	
+			<form   th:action="@{/updateCompany/}" th:object="${company}" method="post">
+			<div class="form">
+			 <div class="inputfield">
+			    <input type="hidden"  name="idCompany" th:value="${company.idCompany}" class="input">
+			  </div>
+			  <div class="inputfield">
+			    <label for="companyName" class="label">CompanyName</label>
+			    <input type="text" name="companyName"  th:value="${company.companyName}" class="input">
+			  </div>
+			  <div class="buttons"></div>
+			  <div  class="submit" style="margin-left:60%;">
+			  <button  class="btn btn-primary " type="submit">Update</button>
+          	</div>
+          	<div class="cancel" style="margin-left:10%;">
+          <a  class="btn btn-danger " th:href="@{/pages/table-elements}">Cancel</a>
+			</div><!--  -->
+			</div>
+			</form>
+        </div>
+      </div>
+        
+       
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
@@ -282,11 +365,11 @@ input[type=submit]:active{
             </div>
         </div>
         
-        
+        <!-- Update Form for flight -->
        
-			<div id="rectangle" th:style="'z-index:999;padding:2%; position: absolute; top: 6%; left: 37%; width: 40%; height: 65%; display: ' + ${display} + ';'">
-				 <div class="d-flex align-items-center justify-content-center">	
-			<form   th:action=@{/updateFlight} th:object="${flight}" method="post">
+	<div id="rectangle" th:style="'z-index:999;padding:2%; position: absolute; top: 6%; left: 37%; width: 40%; height: 65%; display: ' + ${display} + ';'">
+	 <div class="d-flex align-items-center justify-content-center">	
+		<form   th:action=@{/updateFlight} th:object="${flight}" method="post">
 			<div class="form">
 			 <div class="inputfield">
 			    <input type="hidden" id="idVol" name="idVol" th:value="${flight.idVol}" class="input">
@@ -316,8 +399,8 @@ input[type=submit]:active{
 			  		  th:selected="${ville== flight.villeArrive}"> 
 			  		 </option>
 			</select>
-			  </div> <!-- -->
-			  
+			  </div>
+ 
 			  <div class="inputfield">
 			    <label for="volName" class="label">Nom du vol:</label>
 			    <input type="text" id="volName" name="volName" th:value="${flight.volName}" class="input">
@@ -344,7 +427,8 @@ input[type=submit]:active{
 			</div>
 			</form>
         </div>
-      </div> <!-- -->
+      </div>
+ 
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
