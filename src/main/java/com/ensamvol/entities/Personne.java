@@ -15,7 +15,7 @@ public class Personne {
     private Integer CIN;
     private String nom;
     private String prenom;
-    private Date dateNaissance;
+    private String dateNaissance;
     private String username;
     private String password;
     @ManyToMany(targetEntity = Role.class, cascade = { CascadeType.ALL },fetch = FetchType.EAGER)
@@ -47,10 +47,10 @@ public class Personne {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-	public Date getDateNaissance() {
+	public String getDateNaissance() {
 		return dateNaissance;
 	}
-	public void setDateNaissance(Date dateNaissance) {
+	public void setDateNaissance(String dateNaissance) {
 		this.dateNaissance = dateNaissance;
 	}
 	public String getUsername() {
@@ -82,6 +82,22 @@ public class Personne {
 	}
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
+	}
+	public Personne(Integer cIN, String nom, String prenom, String dateNaissance, String username, String password,
+			List<Role> roles, Client client, Employee employee) {
+		super();
+		CIN = cIN;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.dateNaissance = dateNaissance;
+		this.username = username;
+		this.password = password;
+		this.roles = roles;
+		this.client = client;
+		this.employee = employee;
+	}
+	public Personne() {
+		// TODO Auto-generated constructor stub
 	}
 
 
