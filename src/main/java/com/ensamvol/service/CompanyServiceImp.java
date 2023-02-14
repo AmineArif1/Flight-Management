@@ -5,6 +5,11 @@ import com.ensamvol.repositories.CompanyRepository;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Service;
+@Service
+@Transactional
 public class CompanyServiceImp implements CompanyService {
 
     final CompanyRepository companyRepository;
@@ -26,7 +31,7 @@ public class CompanyServiceImp implements CompanyService {
     }
 
     @Override
-    public void removeCompany(Long idCompany) {
+    public void removeCompany(Integer idCompany) {
         companyRepository.deleteCompanyByIdCompany(idCompany);
 
     }
