@@ -14,168 +14,112 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Add Flight</h4>
+ <!-- Add Flight -->
+					 <form th:action="@{/addFlightAdmin}" method="post">
+					  <input type="hidden" name="idVol" >
+					  <div class="form-group">
+					    <label  class="col-sm-3 col-form-label" for="dateArrivee">Date d'arrivée:</label>
+					    <input class="form-control"  type="date" id="dateArrivee" name="dateArrivee" pattern="yyyy-MM-dd">
+					  </div>
+					  <div class="form-group">
+					    <label  class="col-sm-3 col-form-label" for="dateDepart">Date de départ:</label>
+					    <input class="form-control" type="date" id="dateDepart" name="dateDepart" pattern="yyyy-MM-dd" >
+					  </div>
+					        <div class="form-group">
+					    <label  class="col-sm-3 col-form-label" for="volName">Ville de départ:</label>
+					   	<select class="form-control" name="villeDepart">
+					  		 <option  th:each="ville : ${villes}" th:value="${ville.villeName}" th:text="${ville.villeName}"></option>
+						 </select>
+					  </div>
+					   <div class="form-group">
+					    <label  class="col-sm-3 col-form-label" for="volName" >Ville d'arrivée:</label>
+					   	<select class="form-control" name="villeArrive">
+					  		<option    th:each="ville : ${villes}" th:value="${ville.villeName}" th:text="${ville.villeName}"></option>
+						</select>
+						</div>
+					  
+					  
+					  <div class="form-group">
+					    <label class="col-sm-3 col-form-label" for="volName">Nom du vol:</label>
+					    <input class="form-control" type="text" id="volName" name="volName" >
+					  </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 col-form-label" for="volImage">Image du vol:</label>
+					    <input class="form-control" type="text" id="volImage" name="volImage" >
+					  </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 col-form-label" for="volDescription">Description du vol:</label>
+					    <input class="form-control" type="text" id="volDescription" name="volDescription" >
+					  </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 col-form-label" for="volPrix">Prix du vol:</label>
+					    <input class="form-control" type="number" id="volPrix" name="volPrix" >
+					  </div>
+					       <button type="submit" class="btn btn-success mr-2">Submit</button>
+					                                <button class="btn btn-light">Cancel</button>
+					</form>
  
- <form th:action="@{/addFlightAdmin}" method="post">
-  <input type="hidden" name="idVol" >
-  <div class="form-group">
-    <label  class="col-sm-3 col-form-label" for="dateArrivee">Date d'arrivée:</label>
-    <input class="form-control"  type="date" id="dateArrivee" name="dateArrivee" pattern="yyyy-MM-dd">
-  </div>
-  <div class="form-group">
-    <label  class="col-sm-3 col-form-label" for="dateDepart">Date de départ:</label>
-    <input class="form-control" type="date" id="dateDepart" name="dateDepart" pattern="yyyy-MM-dd" >
-  </div>
-        <div class="form-group">
-    <label  class="col-sm-3 col-form-label" for="volName">Ville de départ:</label>
-   	<select class="form-control" name="villeDepart">
-  		 <option  th:each="ville : ${villes}" th:value="${ville.villeName}" th:text="${ville.villeName}"></option>
-	 </select>
-  </div>
-   <div class="form-group">
-    <label  class="col-sm-3 col-form-label" for="volName" >Ville d'arrivée:</label>
-   	<select class="form-control" name="villeArrive">
-  		<option    th:each="ville : ${villes}" th:value="${ville.villeName}" th:text="${ville.villeName}"></option>
-	</select>
-	</div>
-  
-  
-  <div class="form-group">
-    <label class="col-sm-3 col-form-label" for="volName">Nom du vol:</label>
-    <input class="form-control" type="text" id="volName" name="volName" >
-  </div>
-  <div class="form-group">
-    <label class="col-sm-3 col-form-label" for="volImage">Image du vol:</label>
-    <input class="form-control" type="text" id="volImage" name="volImage" >
-  </div>
-  <div class="form-group">
-    <label class="col-sm-3 col-form-label" for="volDescription">Description du vol:</label>
-    <input class="form-control" type="text" id="volDescription" name="volDescription" >
-  </div>
-  <div class="form-group">
-    <label class="col-sm-3 col-form-label" for="volPrix">Prix du vol:</label>
-    <input class="form-control" type="number" id="volPrix" name="volPrix" >
-  </div>
-  <button class="btn btn-success mr-2" type="submit">Add</button>
-</form>
- 
- 
-			          	</div>
-			          </div>
-                </div>
-                <div class="col-12 stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">Horizontal Form</h4>
-                            <p class="card-description">
-                                Horizontal form layout
-                            </p>
-                            <form class="forms-sample">
-                                <div class="form-group row">
-                                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Email</label>
-                                    <div class="col-sm-9">
-                                        <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Password</label>
-                                    <div class="col-sm-9">
-                                        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-success mr-2">Submit</button>
-                                <button class="btn btn-light">Cancel</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+   	</div>
+       </div>
+          </div>
+          </div>
         </div>
-        <div class="col-md-6 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Basic form</h4>
-                    <p class="card-description">
-                        Basic form elements
-                    </p>
-                    <form class="forms-sample">
-                        <div class="form-group">
-                            <label for="exampleInputName1">Name</label>
-                            <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail3">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword4">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
-                        </div>
-                        <div class="form-group">
-                            <label>File upload</label>
-                            <input type="file" name="img[]" class="file-upload-default">
-                            <div class="input-group col-xs-12">
-                                <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                                <span class="input-group-append">
-                          <button class="file-upload-browse btn btn-info" type="button">Upload</button>
-                        </span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputCity1">City</label>
-                            <input type="text" class="form-control" id="exampleInputCity1" placeholder="Location">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleTextarea1">Textarea</label>
-                            <textarea class="form-control" id="exampleTextarea1" rows="2"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-success mr-2">Submit</button>
-                        <button class="btn btn-light">Cancel</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-5 d-flex align-items-stretch">
+<!-- salat add flight -->
+ 
+       <!-- Add emmployee -->
+        <div class="col-md-6 d-flex align-items-stretch">
             <div class="row flex-grow">
                 <div class="col-12 grid-margin">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Basic input groups</h4>
-                            <p class="card-description">
-                                Basic bootstrap input groups
-                            </p>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">@</span>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">$</span>
-                                    </div>
-                                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">$</span>
-                                    </div>
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">0.00</span>
-                                    </div>
-                                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-                                </div>
-                            </div>
+                            <h4 class="card-title">Add employee</h4>
+                            <form th:action="@{/addEmployee}" method="post">
+                       <div class="form">
+			 <div class="form-group row">
+			    <input type="hidden" id="idEmployee" name="idEmployee"  class="input">
+			  </div>
+			  <div class="form-group row">
+			    <label for="CIN" class="col-sm-3 col-form-label">CIN</label>
+			    <input type="text"  name="CIN" class="form-control">
+			  </div>
+			 <div class="form-group row">
+			    <label for="nom" class="col-sm-3 col-form-label">nom</label>
+			    <input type="text"  name="nom" class="form-control">
+			  </div>
+			   <div class="form-group row">
+			    <label for="prenom" class="col-sm-3 col-form-label">prenom</label>
+			    <input type="text"  name="prenom"  class="form-control">
+			  </div>
+			   <div class="form-group row">
+			    <label for="dateNaissance" class="col-sm-3 col-form-label">Date De Naissance</label>
+			    <input type="date"  name="dateNaissance"  class="form-control">
+			  </div>
+			  
+			  
+			  <div class="form-group row">
+			    <label for="username" class="col-sm-3 col-form-label">username</label>
+			    <input type="text"  name="username"  class="form-control">
+			  </div>
+			   <div class="form-group row">
+			    <label for="password" class="col-sm-3 col-form-label">password</label>
+			    <input type="password"  name="password"  class="form-control">
+			  </div>
+			  <div class="form-group row">
+	  			   <label for="roleName" class="col-sm-3 col-form-label">roles</label>
+			  	<div th:each="role: ${roles}" >
+			  	<input  type="checkbox" class="checkbox" th:value="${role.roleName}" th:text="${role.roleName}" name="roleName">
+			 </div>
+			 </div>
+			  
+			     <button type="submit" class="btn btn-success mr-2">Submit</button>
+                                <button class="btn btn-light">Cancel</button>
+					</div>
+                    </form>
                         </div>
                     </div>
                 </div>
+ <!-- salat here-->
+    
                 <div class="col-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
@@ -229,61 +173,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-7 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Input size</h4>
-                    <p class="card-description">
-                        This is the default bootstrap form layout
-                    </p>
-                    <div class="form-group">
-                        <label>Large input</label>
-                        <input type="text" class="form-control form-control-lg" placeholder="Username" aria-label="Username">
-                    </div>
-                    <div class="form-group">
-                        <label>Default input</label>
-                        <input type="text" class="form-control" placeholder="Username" aria-label="Username">
-                    </div>
-                    <div class="form-group">
-                        <label>Small input</label>
-                        <input type="text" class="form-control form-control-sm" placeholder="Username" aria-label="Username">
-                    </div>
-                </div>
-                <div class="card-body">
-                    <h4 class="card-title">Selectize</h4>
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1">Large select</label>
-                        <select class="form-control form-control-lg" id="exampleFormControlSelect1">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect2">Default select</label>
-                        <select class="form-control" id="exampleFormControlSelect2">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect3">Small select</label>
-                        <select class="form-control form-control-sm" id="exampleFormControlSelect3">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
         <div class="col-md-6 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
