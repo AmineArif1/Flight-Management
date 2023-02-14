@@ -9,7 +9,7 @@ import java.util.List;
 public interface CompanyService {
     void addNewCompany(Company company);
     List<Company> listCompany();
-    void removeCompany(Long idCompany);
+    void removeCompany(Integer idCompany);
     void saveCompany(Company company);
 
 }
