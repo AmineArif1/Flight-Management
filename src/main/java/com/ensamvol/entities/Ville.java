@@ -16,7 +16,7 @@ public class Ville {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idville;
 	@Column(unique = true)
-    private String villeName;
+    public String villeName;
 	@OneToMany(mappedBy = "ville")
 	private Collection<Aeroport> aeroport;
 	public Integer getIdville() {
