@@ -3,6 +3,7 @@ package com.ensamvol.web;
 import com.ensamvol.entities.*;
 import com.ensamvol.repositories.*;
 import com.ensamvol.service.CompanyService;
+import com.ensamvol.service.EmployeeService;
 import com.ensamvol.service.VilleService;
 import com.ensamvol.service.VolService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,28 +33,40 @@ public class TableElements {
 
     private VolService volService;
     @Autowired
-
     private CompanyService companyService;
+    @Autowired 
+	private EmployeeService employeeService;
+    
+    @Autowired 
+    private AppRoleRepository appRoleRepository;
+    
 
     @GetMapping(value = "table-elements")
     public String table_element(ModelMap model) {
         List<Vol> vols = volRepository.findAll();
         model.addAttribute("flights", vols);
-        model.addAttribute("flight",volRepository.getById(40L));
+        List<Employee> employees=employeeRepository.findAll();
+        model.addAttribute("employees",employees);
+        //les valeurs initales lorsque udpdate form is hidden
+        model.addAttribute("flight",volRepository.getById(46L));
+        model.addAttribute("employee",employeeRepository.getById(57));
+        model.addAttribute("company",companyRepository.getById(6));
+        model.addAttribute("roles",appRoleRepository.findAll());
         model.addAttribute("villes",villeService.listVille());
         model.addAttribute("display","none");
-      List<Employee> employees=employeeRepository.findAll();
-      System.out.println("zaabey" +employees);
-        model.addAttribute("employees",employees);
-         /*List<Company> companies =companyRepository.findAll();
+        model.addAttribute("displayEmployee","none");
+        model.addAttribute("displayCompany","none");
+
+        List<Company> companies =companyRepository.findAll();
         model.addAttribute("companies",companies);
-        List<Billet> billets=billetRepository.findAll();
+        /* List<Billet> billets=billetRepository.findAll();
         model.addAttribute("billets",billets);*/
 
         return "pages/table-elements";
 
     }
-   
+    
+
 
 
 
